@@ -3,6 +3,13 @@ angular.module('myApp')
     .controller('PretragaKontrol', PretragaKontrol)
 
 
+function PretragaKontrol(){
+    var pretraga = this;
+    pretraga.aktivniFilteri = {};
+    pretraga.fraza = ''
+}   // PretragaKontrol
+
+
 function PodaciKontrol() {
     var podaci = this;
     // u servis!
@@ -20,10 +27,3 @@ function PodaciKontrol() {
     ];
     podaci.gradovi = ['Dallas', 'Los Angeles', 'Boston', 'New York'];
 }   // PodaciKontrol
-
-
-function PretragaKontrol(){
-    var pretraga = this;
-    pretraga.aktivniFilteri = {};
-    pretraga.fraza = ''
-}   // PretragaKontrol
