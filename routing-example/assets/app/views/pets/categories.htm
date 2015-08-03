@@ -1,0 +1,48 @@
+
+<div ng-controller="pets.CategoriesController" ng-switch="isLoading">
+
+
+	<!-- BEGIN: Loading Sequence. -->
+	<div ng-switch-when="true">
+
+
+		Loading....
+
+
+	</div>
+	<!-- END: Loading Sequence. -->
+
+
+	<!-- BEGIN: View. -->
+	<div ng-switch-when="false">
+
+
+		<h1>
+			What Are You Looking For?
+		</h1>
+
+		<p>
+			There's no doubt that both cats and dogs are adorable, in their own right.
+			But, you gotta find the one that's right for you!
+		</p>
+
+		<!-- List the categories. -->
+		<ul class="m-category-list">
+
+			<li ng-repeat="category in categories">
+
+				<a href="#/pets/{{ category.id }}">
+					<span class="name">{{ category.name }}</span>
+					<span class="description">{{ category.description }}</span>
+				</a>
+
+			</li>
+
+		</ul>
+		
+
+	</div>
+	<!-- END: View. -->
+
+
+</div>

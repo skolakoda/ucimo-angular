@@ -1,0 +1,66 @@
+
+<!doctype html>
+<html ng-app="Demo" ng-controller="AppController">
+<head>
+	<meta charset="utf-8" />
+
+	<title ng-bind="windowTitle">Adopt-A-Pet</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/app/css/main.css"></link>
+</head>
+<body>
+
+	<div ng-switch="subview">
+		<!--
+			This subview will show while the AngularJS app is loading since it's visible right in 
+			the page. Once the app kicks in, however, the calculated subview will determine the
+			appropriate layout to render.
+		-->
+		<div ng-switch-when="loading" class="l-loading">
+			
+			<p>
+				Loading Application
+			</p>	
+
+		</div>
+
+		<!-- Core layouts. -->
+		<div ng-switch-when="splash" ng-include=" 'assets/app/views/layouts/splash.htm' "></div>
+		<div ng-switch-when="standard" ng-include=" 'assets/app/views/layouts/standard.htm' "></div>
+	</div>
+
+
+	<!-- ### JavaScript Modules. ### -->
+
+
+	<!-- Load vendor scripts. -->
+	<script type="text/javascript" src="assets/vendor/jquery/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="assets/vendor/angularjs/angular.min.js"></script>
+	<script type="text/javascript" src="assets/vendor/lodash/lodash.min.js"></script>
+
+	<!-- Load AngularJS application module. -->
+	<script type="text/javascript" src="assets/app/main.js"></script>
+
+	<!-- Load Controllers. -->
+	<script type="text/javascript" src="assets/app/controllers/contact/contact-controller.js"></script>
+	<script type="text/javascript" src="assets/app/controllers/home/home-controller.js"></script>
+	<script type="text/javascript" src="assets/app/controllers/layouts/splash-controller.js"></script>
+	<script type="text/javascript" src="assets/app/controllers/layouts/standard-controller.js"></script>
+	<script type="text/javascript" src="assets/app/controllers/pets/categories-controller.js"></script>
+	<script type="text/javascript" src="assets/app/controllers/pets/detail/detail-controller.js"></script>
+	<script type="text/javascript" src="assets/app/controllers/pets/detail/random-controller.js"></script>
+	<script type="text/javascript" src="assets/app/controllers/pets/list-controller.js"></script>
+	<script type="text/javascript" src="assets/app/controllers/pets/pets-controller.js"></script>
+	<script type="text/javascript" src="assets/app/controllers/app-controller.js"></script>
+
+	<!-- Load Services. -->
+	<script type="text/javascript" src="assets/app/services/category-service.js"></script>
+	<script type="text/javascript" src="assets/app/services/lodash.js"></script>
+	<script type="text/javascript" src="assets/app/services/pet-service.js"></script>
+	<script type="text/javascript" src="assets/app/services/request-context.js"></script>
+	
+	<!-- Load Beans. -->
+	<script type="text/javascript" src="assets/app/beans/render-context.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Angular proba</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class="wrapper">
+
+            <h1>Zdravo Svete!</h1>
+            <p>Ovo je Angular.js proba. </p>
+
+
+            <div ng-app="" ng-controller="dodelaImena">
+
+                <h3>Ukljucuje HTML</h3>
+
+                <div ng-include="'meni.html'"></div>
+
+
+                <h3>Prikazuje unos</h3>
+
+                <p>Unos: <input ng-model="unos" type="text"/> </p>
+                <p>{{unos}}</p>
+
+
+                <h3>Prikazuje varijable</h3>
+
+                <p>Dakle, 2 + 2 je {{2 + 2}}</p>
+
+                <p>Ovo je prosto kao {{prosto}}</p>
+                <p>Moje ime je {{ime + ' ' + prezime}}</p>
+
+
+                <h3>Racuna cenu</h3>
+
+                <p>Cena: <input ng-model="cena" type="number"/> </p>
+                <p>Kolicina: <input ng-model="kolicina" type="number"/> </p>
+
+                <p>Iznos je {{cena * kolicina | currency}} </p>
+
+
+                <h3>Lista JSON</h3>
+
+                <ul>
+                    <li ng-repeat="osoba in osobe">
+                        {{ osoba.name + ', ' + osoba.country }}
+                    </li>
+                </ul>
+
+                <table border="1">
+                    <tr ng-repeat="osoba in osobe">
+                        <td> {{osoba.name}} </td>
+                        <td> {{osoba.country}} </td>
+                    </tr>
+                </table>
+
+            </div> <!-- kraj aplikacije -->
+
+        </div>
+
+
+        <script>
+            function dodelaImena($scope){
+                $scope.prosto = "pasulj";
+                $scope.ime = 'Daman';
+                $scope.prezime = 'Daman';
+
+                $scope.osobe = [
+                    {name:'Jani',country:'Norway'},
+                    {name:'Hege',country:'Sweden'},
+                    {name:'Kai',country:'Denmark'}
+                ];
+            }
+        </script>
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>

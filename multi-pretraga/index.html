@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="utf-8">
+  <title>Multi pretraga</title>
+</head>
+
+<body ng-app="myApp">
+
+  <div ng-controller="PretragaKontrol">
+    <form ng-controller="FilterKontrol">
+      <label for="fraza-unos">Traži:</label>
+      <input ng-model="pretragaServis.fraza" id="fraza-unos">
+      <br/><br/>
+
+      <label for="sport-unos">Sport:</label>
+      <select ng-model="pretragaServis.aktivniFilteri.sport" id="sport-unos">
+        <option ng-repeat="sport in ['Basketball', 'Hockey', 'Football']">{{sport}}</option>
+      </select>
+      <br/><br/>
+
+      <label for="grad-unos">Grad:</label>
+      <select ng-model="pretragaServis.aktivniFilteri.grad" id="grad-unos">
+        <option ng-repeat="grad in gradovi">{{grad}}</option>
+      </select>
+      <br/><br/>
+
+      <label>Istaknut:</label>
+      <input type="checkbox" ng-model="pretragaServis.aktivniFilteri.istaknut" ng-false-value="" />
+      <br/><br/>
+    </form>
+
+    <table ng-controller="ListKontrol">
+      <thead>
+      <tr>
+        <th>Ime</th>
+        <th>Sport</th>
+        <th>Grad</th>
+        <th>Istaknut</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="team in teamsList | filter:pretragaServis.aktivniFilteri | filter:pretragaServis.fraza">
+        <td>{{team.ime}}</td>
+        <td>{{team.sport}}</td>
+        <td>{{team.grad}}</td>
+        <td>{{team.istaknut}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="servisi.js"></script>
+  <script src="kontroleri.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+
+<div ng-controller="pets.ListController" ng-switch="isLoading">
+
+
+	<!-- BEGIN: Loading Sequence. -->
+	<div ng-switch-when="true">
+
+
+		Loading....
+
+
+	</div>
+	<!-- END: Loading Sequence. -->
+
+
+	<!-- BEGIN: View. -->
+	<div ng-switch-when="false">
+
+
+		<div class="m-pet-list-header">
+
+			<h1>
+				{{ category.name }}
+			</h1>
+
+			<span class="back">
+				<a href="#/pets">Back to Categories</a> &raquo;
+			</span>
+
+		</div>
+
+		<p>
+			{{ category.description }}
+		</p>
+
+		<ul>
+			<li ng-repeat="pet in pets">
+
+				<a href="#/pets/{{ category.id }}/{{ pet.id }}">{{ pet.name }}</a> - 
+				{{ pet.breed }}
+
+			</li>
+		</ul>
+
+
+	</div>
+	<!-- END: View. -->
+
+
+</div>
