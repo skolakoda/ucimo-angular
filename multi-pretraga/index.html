@@ -9,46 +9,50 @@
 <body ng-app="myApp">
 
   <div ng-controller="PretragaKontrol as pretraga">
-    <form ng-controller="FilterKontrol">
-      <label for="fraza-unos">Traži:</label>
-      <input ng-model="pretraga.fraza" id="fraza-unos">
-      <br/><br/>
+    <div ng-controller="PodaciKontrol as podaci">
 
-      <label for="sport-unos">Sport:</label>
-      <select ng-model="pretraga.aktivniFilteri.sport" id="sport-unos">
-        <option ng-repeat="sport in ['Basketball', 'Hockey', 'Football']">{{sport}}</option>
-      </select>
-      <br/><br/>
-
-      <label for="grad-unos">Grad:</label>
-      <select ng-model="pretraga.aktivniFilteri.grad" id="grad-unos">
-        <option ng-repeat="grad in gradovi">{{grad}}</option>
-      </select>
-      <br/><br/>
-
-      <label>Istaknut:</label>
-      <input type="checkbox" ng-model="pretraga.aktivniFilteri.istaknut" ng-false-value="undefined" />
-      <br/><br/>
-    </form>
-
-    <table ng-controller="ListKontrol">
-      <thead>
-      <tr>
-        <th>Ime</th>
-        <th>Sport</th>
-        <th>Grad</th>
-        <th>Istaknut</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr ng-repeat="team in teamsList | filter:pretraga.aktivniFilteri | filter:pretraga.fraza">
-        <td>{{team.ime}}</td>
-        <td>{{team.sport}}</td>
-        <td>{{team.grad}}</td>
-        <td>{{team.istaknut}}</td>
-      </tr>
-      </tbody>
-    </table>
+      <form>
+        <label for="fraza-unos">Traži:</label>
+        <input ng-model="pretraga.fraza" id="fraza-unos">
+        <br/><br/>
+  
+        <label for="sport-unos">Sport:</label>
+        <select ng-model="pretraga.aktivniFilteri.sport" id="sport-unos">
+          <option ng-repeat="sport in ['Basketball', 'Hockey', 'Football']">{{sport}}</option>
+        </select>
+        <br/><br/>
+  
+        <label for="grad-unos">Grad:</label>
+        <select ng-model="pretraga.aktivniFilteri.grad" id="grad-unos">
+          <option ng-repeat="grad in podaci.gradovi">{{grad}}</option>
+        </select>
+        <br/><br/>
+  
+        <label>Istaknuti:</label>
+        <input type="checkbox" ng-model="pretraga.aktivniFilteri.istaknut" />
+        <br/><br/>
+      </form>
+  
+      <table>
+        <thead>
+        <tr>
+          <th>Ime</th>
+          <th>Sport</th>
+          <th>Grad</th>
+          <th>Istaknut</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="team in podaci.igraci | filter:pretraga.aktivniFilteri | filter:pretraga.fraza">
+          <td>{{team.ime}}</td>
+          <td>{{team.sport}}</td>
+          <td>{{team.grad}}</td>
+          <td>{{team.istaknut}}</td>
+        </tr>
+        </tbody>
+      </table>
+      
+    </div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>

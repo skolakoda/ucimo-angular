@@ -1,13 +1,12 @@
 angular.module('myApp')
-    .controller('ListKontrol', ListKontrol)
-    .controller('FilterKontrol', FilterKontrol)
+    .controller('PodaciKontrol', PodaciKontrol)
     .controller('PretragaKontrol', PretragaKontrol)
 
 
-function ListKontrol($scope) {
-    $scope.pretragaServis = pretragaServis;
+function PodaciKontrol() {
+    var podaci = this;
     // u servis!
-    $scope.teamsList = [
+    podaci.igraci = [
         {id: 1, ime: 'Dallas Mavericks', sport: 'Basketball', grad: 'Dallas', istaknut: true},
         {id: 2, ime: 'Dallas Cowboys', sport: 'Football', grad: 'Dallas', istaknut: false},
         {id: 3, ime: 'New York Knicks', sport: 'Basketball', grad: 'New York', istaknut: false},
@@ -19,14 +18,8 @@ function ListKontrol($scope) {
         {id: 9, ime: 'Dallas Stars', sport: 'Hockey', grad: 'Dallas', istaknut: false},
         {id: 10, ime: 'Boston Bruins', sport: 'Hockey', grad: 'Boston', istaknut: true}
     ];
-}   // ListKontrol
-
-
-function FilterKontrol($scope) {
-    $scope.pretragaServis = pretragaServis;
-    // u servis!
-    $scope.gradovi = ['Dallas', 'Los Angeles', 'Boston', 'New York'];
-}   // FilterKontrol
+    podaci.gradovi = ['Dallas', 'Los Angeles', 'Boston', 'New York'];
+}   // PodaciKontrol
 
 
 function PretragaKontrol(){
