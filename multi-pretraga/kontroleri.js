@@ -4,7 +4,7 @@ angular.module('myApp')
     .controller('PretragaKontrol', PretragaKontrol)
 
 
-function ListKontrol($scope, pretragaServis) {
+function ListKontrol($scope) {
     $scope.pretragaServis = pretragaServis;
     // u servis!
     $scope.teamsList = [
@@ -22,14 +22,15 @@ function ListKontrol($scope, pretragaServis) {
 }   // ListKontrol
 
 
-function FilterKontrol($scope, pretragaServis) {
+function FilterKontrol($scope) {
     $scope.pretragaServis = pretragaServis;
     // u servis!
     $scope.gradovi = ['Dallas', 'Los Angeles', 'Boston', 'New York'];
 }   // FilterKontrol
 
 
-function PretragaKontrol($scope){
-    $scope.aktivniFilteri = {};
-    $scope.fraza = ''
+function PretragaKontrol(){
+    var pretraga = this;
+    pretraga.aktivniFilteri = {};
+    pretraga.fraza = ''
 }   // PretragaKontrol
