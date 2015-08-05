@@ -1,20 +1,16 @@
 angular
     .module('multiFilter', [])
-    .filter('poZanru', poZanru);
+    .controller('FilmoviKontrol', FilmoviKontrol)
 
-function poZanru() {
-    return function(filmovi, zanrovi) {
-        var spisak = {
-            zanrovi: zanrovi,
-            odabrani: []
-        };
-        angular.forEach(filmovi, proveriFilm, spisak);
-        return spisak.odabrani;
-    };
-}
 
-function proveriFilm(value, key) {
-    if (this.zanrovi[value.zanr] === true) {
-        this.odabrani.push(value);
-    }
-}
+function FilmoviKontrol($scope){
+    var filmovi = this;
+    filmovi.filter = {};
+    filmovi.svi = [
+        {naziv:'Man on the Moon', zanr:'akcioni'},
+        {naziv:'Meet the Robinsons', zanr:'komedija'},
+        {naziv:'Sphere', zanr:'akcioni'}
+    ];
+}   // FilmoviKontrol
+
+

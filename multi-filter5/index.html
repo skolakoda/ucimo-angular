@@ -1,20 +1,29 @@
+<!-- Error: this.zanrovi is undefined, koristi se pre proglasenja -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
 <body ng-app='multiFilter'>
 
     <h1>Filmovi</h1>
 
-    <div ng-init="filmovi = [
-        {naziv:'Man on the Moon', zanr:'akcioni'},
-        {naziv:'Meet the Robinsons', zanr:'komedija'},
-        {naziv:'Sphere', zanr:'akcioni'}
-        ];"> </div>
+    <div ng-controller="FilmoviKontrol as filmovi">
+        <label>
+            <input type="checkbox" ng-model="filmovi.filter.akcioni" /> Akcioni
+        </label>
+        <label>
+            <input type="checkbox" ng-model="filmovi.filter.komedija" /> Komedija
+        </label>
+        <ul>
+            <li ng-repeat="film in filmovi.svi | poZanru : filmovi.filter">{{film.naziv}}: {{film.zanr}}</li>
+        </ul>
+    </div>
 
-    <input type="checkbox" ng-model="filter.akcioni" /> Akcioni
-    <input type="checkbox" ng-model="filter.komedija" /> Komedija
-
-    <ul>
-        <li ng-repeat="film in filmovi | poZanru : filter">{{film.naziv}}: {{film.zanr}}</li>
-    </ul>
 
     <script src="https://code.angularjs.org/1.2.16/angular.min.js"></script>
     <script src="app.js"></script>
+    <script src="filteri.js"></script>
 </body>
+</html>
