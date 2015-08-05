@@ -11,13 +11,13 @@
 
     <div ng-controller="FilmoviKontrol as filmovi">
         <label>
-            <input type="checkbox" ng-model="filmovi.filter.akcioni" /> Akcioni
+            <input type="checkbox" ng-model="filmovi.zanrovi.akcioni" /> Akcioni
         </label>
         <label>
-            <input type="checkbox" ng-model="filmovi.filter.komedija" /> Komedija
+            <input type="checkbox" ng-model="filmovi.zanrovi.komedija" /> Komedija
         </label>
         <ul>
-            <li ng-repeat="film in filmovi.svi | poZanru : filmovi.filter">{{film.naziv}}: {{film.zanr}}</li>
+            <li ng-repeat="film in filmovi.svi | prikaziZanrove: filmovi.zanrovi">{{film.naziv}}: {{film.zanr}}</li>
         </ul>
     </div>
 

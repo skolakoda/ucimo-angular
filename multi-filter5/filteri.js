@@ -1,27 +1,22 @@
 angular
     .module('multiFilter')
-    .filter('poZanru', poZanru);
+    .filter('prikaziZanrove', prikaziZanrove);
 
 
-function poZanru() {
+function prikaziZanrove() {
     return function(filmovi, zanrovi) {
         var spisak = {
             zanrovi: zanrovi,
             odabrani: []
         };
-        angular.forEach(filmovi, function(value, key){
-            if (spisak.zanrovi[value.zanr] === true) {
-                spisak.odabrani.push(value);
-            }
-        }, spisak);
+        angular.forEach(filmovi, proveriZanr, spisak);
         return spisak.odabrani;
     };
-}   // poZanru
+}   // prikaziZanrove
 
 
-function proveriFilm(value, key) {
-    console.log()
+function proveriZanr(value, key) {
     if (this.zanrovi[value.zanr] === true) {
         this.odabrani.push(value);
     }
-}   // proveriFilm
+}   // proveriZanr
