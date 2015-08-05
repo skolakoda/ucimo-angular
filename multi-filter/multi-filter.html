@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body ng-app="myApp">
+
+    <div ng-controller="myCtrl">
+
+        <b>Vrste vina:</b>
+        <div ng-repeat="vrsta in nadjiVrste()">
+            <label>
+                <input type="checkbox" ng-model="izabrano[vrsta]" /> {{vrsta}}
+            </label>
+        </div>
+        <hr>
+
+        <b>Rezultati:</b>
+        <div ng-repeat="vino in nadjeno = (vina | filter:proberiPoVrsti)">
+            {{vino.ime}} ({{vino.vrsta}})
+        </div>
+    </div>
+
+    <script src="https://code.angularjs.org/1.2.16/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

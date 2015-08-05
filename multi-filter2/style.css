@@ -1,0 +1,6 @@
+/* Styles go here */
+
+body{padding: 5px;}
+#hotels{width: 550px; border: 1px solid #ccc;}
+#hotels tr{height: 30px;}
+#hotels tr td{text-align: center;}
