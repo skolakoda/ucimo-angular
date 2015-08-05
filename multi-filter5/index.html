@@ -1,0 +1,20 @@
+<body ng-app='multiFilter'>
+
+    <h1>Filmovi</h1>
+
+    <div ng-init="filmovi = [
+        {naziv:'Man on the Moon', zanr:'akcioni'},
+        {naziv:'Meet the Robinsons', zanr:'komedija'},
+        {naziv:'Sphere', zanr:'akcioni'}
+        ];"> </div>
+
+    <input type="checkbox" ng-model="filter.akcioni" /> Akcioni
+    <input type="checkbox" ng-model="filter.komedija" /> Komedija
+
+    <ul>
+        <li ng-repeat="film in filmovi | poZanru : filter">{{film.naziv}}: {{film.zanr}}</li>
+    </ul>
+
+    <script src="https://code.angularjs.org/1.2.16/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
