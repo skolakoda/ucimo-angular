@@ -1,4 +1,4 @@
-<!-- Error: this.zanrovi is undefined, koristi se pre proglasenja -->
+<!-- Error: this.izabraniZanrovi is undefined, koristi se pre proglasenja -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,13 +11,13 @@
 
     <div ng-controller="FilmoviKontrol as filmovi">
         <label>
-            <input type="checkbox" ng-model="filmovi.zanrovi.akcioni" /> Akcioni
+            <input type="checkbox" ng-model="filmovi.izabraniZanrovi.akcioni" /> Akcioni
         </label>
         <label>
-            <input type="checkbox" ng-model="filmovi.zanrovi.komedija" /> Komedija
+            <input type="checkbox" ng-model="filmovi.izabraniZanrovi.komedija" /> Komedija
         </label>
         <ul>
-            <li ng-repeat="film in filmovi.svi | prikaziZanrove: filmovi.zanrovi">{{film.naziv}}: {{film.zanr}}</li>
+            <li ng-repeat="film in filmovi.svi | prikaziZanrove: filmovi.izabraniZanrovi">{{film.naziv}}: {{film.zanr}}</li>
         </ul>
     </div>
 

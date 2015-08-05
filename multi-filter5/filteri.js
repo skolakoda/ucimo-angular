@@ -4,19 +4,19 @@ angular
 
 
 function prikaziZanrove() {
-    return function(filmovi, zanrovi) {
-        var spisak = {
-            zanrovi: zanrovi,
+    return function(sviFilmovi, izabraniZanrovi) {
+        var filmovi = {
+            izabraniZanrovi: izabraniZanrovi,
             odabrani: []
         };
-        angular.forEach(filmovi, proveriZanr, spisak);
-        return spisak.odabrani;
+        angular.forEach(sviFilmovi, proveriZanr, filmovi);
+        return filmovi.odabrani;
     };
 }   // prikaziZanrove
 
 
-function proveriZanr(value, key) {
-    if (this.zanrovi[value.zanr] === true) {
-        this.odabrani.push(value);
+function proveriZanr(film) {
+    if (this.izabraniZanrovi[film.zanr] === true) {
+        this.odabrani.push(film);
     }
 }   // proveriZanr

@@ -5,7 +5,7 @@ angular
 
 function FilmoviKontrol($scope){
     var filmovi = this;
-    filmovi.zanrovi = {};
+    filmovi.izabraniZanrovi = {};
     filmovi.svi = [
         {naziv:'Man on the Moon', zanr:'akcioni'},
         {naziv:'Meet the Robinsons', zanr:'komedija'},
