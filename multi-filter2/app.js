@@ -4,8 +4,8 @@ angular.module("App", [])
 
 function HoteliKontrol($scope) {
     $scope.kriteriji = {
-        skupoca: '',
-        jeftinoca: ''
+        vrsta1: 'skup',
+        vrsta2: ''
     };
 
     $scope.hotels = [

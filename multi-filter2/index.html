@@ -7,15 +7,15 @@
   <body ng-app="App">
 
       <div ng-controller="HoteliKontrol">
-        <p>Osobine hotela: </p>
+        <p>Kriteriji: </p>
 
         <label>
-            <input type="checkbox" ng-model='kriteriji.skupoca' ng-true-value='skup' ng-false-value='' />
+            <input type="checkbox" ng-model='kriteriji.vrsta1' ng-true-value='skup' ng-false-value='' />
             Skupi
         </label>
 
         <label>
-            <input type="checkbox" ng-model='kriteriji.jeftinoca' ng-true-value='jeftin' ng-false-value='' />
+            <input type="checkbox" ng-model='kriteriji.vrsta2' ng-true-value='jeftin' ng-false-value='' />
             Jeftini
         </label>
 
@@ -27,7 +27,7 @@
                 <th>Vrsta</th>
                 <th>Cena</th>
             </tr>
-            <tr ng-repeat="hotel in hotels | filter:kriteriji.skupoca | filter:kriteriji.jeftinoca">
+            <tr ng-repeat="hotel in hotels | filter:kriteriji.vrsta1 | filter:kriteriji.vrsta2">
                 <td>{{hotel.ime}}</td>
                 <td>{{hotel.ocena}}</td>
                 <td>{{hotel.vrsta}}</td>
