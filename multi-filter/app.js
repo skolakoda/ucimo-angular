@@ -2,7 +2,7 @@ angular.module('myApp', [])
     .controller('VinaKontrol', VinaKontrol);
 
 
-function VinaKontrol($scope) {
+function VinaKontrol() {
     var vina = this;
     vina.izabrano = {};
 
@@ -32,9 +32,9 @@ function VinaKontrol($scope) {
     function prikaziSve(izabrano) {
         for (var stavka in izabrano) {
             if (izabrano[stavka]) {
-                return false;           // ako je ista izabrano, ne prikazuj sve
+                return false;           // ako je neka stavka izabrana, na prikazuj sve
             }
         }
-        return true;                    // ako nije nista, prikazi sve
+        return true;                    // ako nijedna stavka nije izabrana, prikazi sve
     }
-}
+}   // VinaKontrol
