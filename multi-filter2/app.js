@@ -3,7 +3,10 @@ angular.module("App", [])
 
 
 function HoteliKontrol($scope) {
-    $scope.kriteriji=[];
+    $scope.kriteriji = {
+        skupoca: '',
+        jeftinoca: ''
+    };
 
     $scope.hotels = [
         {
