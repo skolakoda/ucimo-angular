@@ -1,39 +1,37 @@
-<html ng-app>
+<html>
 
-  <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-    <script src="script.js"></script>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <title>Filteri musterije</title>
+</head>
 
-  <body ng-controller="ctrl">
-  <div data-ng-repeat="cust in customers">
-    <input type="checkbox" ng-model="search[cust.city]" /> {{ cust.city }}
-  </div>
-  <table>
-    <tr>
-      <th>firstname</th>
-      <th>lastname</th>
-      <th>address</th>
-      <th>city</th>
-    </tr>
+<body ng-app="musterije" ng-controller="MusterijeKontrol">
 
-    <tbody>
-        <tr data-ng-repeat="customer in customers | filter:searchBy() ">
-            <td >
-                {{ customer.firstName }}
-            </td>
-            <td >
-                {{ customer.lastName }}
-            </td>
-            <td >
-                {{ customer.address }}
-            </td>
-            <td >
-                {{ customer.city }}
-            </td>
+    <div data-ng-repeat="cust in customers">
+        <label>
+            <input type="checkbox" ng-model="search[cust.city]"/> {{ cust.city }}
+        </label>
+    </div>
+
+    <table>
+        <tr>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>address</th>
+            <th>city</th>
         </tr>
-    </tbody>
-  </table>
-  </body>
-  
+
+        <tbody>
+        <tr data-ng-repeat="customer in customers | filter:searchBy() ">
+            <td> {{customer.firstName}} </td>
+            <td> {{customer.lastName}} </td>
+            <td> {{customer.address}} </td>
+            <td> {{customer.city}} </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
 </html>
