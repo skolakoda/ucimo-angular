@@ -1,10 +1,8 @@
-// racuna i rec u naslovu
-
 angular.module("App", [])
     .controller('HoteliKontrol', HoteliKontrol);
 
 
-function HoteliKontrol($scope) {
+function HoteliKontrol() {
 	var hoteli = this;
 
     hoteli.kriteriji = {
