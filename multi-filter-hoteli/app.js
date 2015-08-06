@@ -5,12 +5,14 @@ angular.module("App", [])
 
 
 function HoteliKontrol($scope) {
-    $scope.kriteriji = {
+	var hoteli = this;
+
+    hoteli.kriteriji = {
 		//skupoca: "skup",
 		slobodan: true
     };
 
-    $scope.hotels = [
+    hoteli.spisak = [
         {
             ime: 'skup hotel',
             ocena: 5,

@@ -6,26 +6,23 @@
   </head>
   <body ng-app="App">
 
-      <div ng-controller="HoteliKontrol">
-        <p>Kriteriji: </p>
-
+      <div ng-controller="HoteliKontrol as hoteli">
+        <p>Pretrazi hotele: </p>
         <label>
-            <input type="checkbox" ng-model='kriteriji.skupoca' ng-true-value='skup' ng-false-value='' />
+            <input type="checkbox" ng-model='hoteli.kriteriji.skupoca' ng-true-value='skup' ng-false-value='' />
             Skupi
         </label>
-
         <label>
-            <input type="checkbox" ng-model='kriteriji.jeftinoca' ng-true-value='jeftin' ng-false-value='' />
+            <input type="checkbox" ng-model='hoteli.kriteriji.jeftinoca' ng-true-value='jeftin' ng-false-value='' />
             Jeftini
         </label>
-
 		<label>
-            <input type="checkbox" ng-model='kriteriji.slobodan' />
+            <input type="checkbox" ng-model='hoteli.kriteriji.slobodan' />
             Slobodni
         </label>
-		
         <br/><br/>
-        <table id="hotels">
+
+        <table>
             <tr>
                 <th>Ime</th>
                 <th>Ocena</th>
@@ -33,12 +30,12 @@
                 <th>Cena</th>
 				<th>Slobodno</th>
             </tr>
-            <tr ng-repeat="hotel in hotels | filter:{ vrsta: kriteriji.skupoca } | filter:{ vrsta: kriteriji.jeftinoca } | filter:{ slobodan: kriteriji.slobodan } ">
+            <tr ng-repeat="hotel in hoteli.spisak | filter:{ vrsta: hoteli.kriteriji.skupoca } | filter:{ vrsta: hoteli.kriteriji.jeftinoca } | filter:{ slobodan: hoteli.kriteriji.slobodan } ">
                 <td>{{hotel.ime}}</td>
                 <td>{{hotel.ocena}}</td>
                 <td>{{hotel.vrsta}}</td>
                 <td>{{hotel.cena}}</td>
-				<td>{{hotel.slobodan}}</td>
+				<td>{{hotel.slobodan ? "slobodno" : "zauzeto"}} </td>
             </tr>
         </table>
       </div>
