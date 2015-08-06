@@ -1,0 +1,63 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Filteri</title>
+</head>
+
+<body ng-app>
+
+		<span class="bold">Demonstrating filtering and sorting using Angular JS</span>
+		<br /><br />
+			<div ng-controller="ShoppingCartCtrl">        
+				<div>Sort by: 
+				<select ng-model="sortExpression">
+						<option value="Name">Name</option>
+						<option value="Price">Price</option>
+						<option value="Quantity">Quantity</option>
+					</select>
+				</div>
+				<br />
+				<div><strong>Filter Results</strong></div>
+				<table>
+					<tr>
+						<td>By Any: </td>
+						<td><input type="text" ng-model="search.$" /></td>
+					</tr>
+					<tr>
+						<td>By Name: </td>
+						<td><input type="text" ng-model="search.Name" /></td>
+					</tr>
+					<tr>
+						<td>By Price: </td>
+						<td><input type="text" ng-model="search.Price" /></td>
+					</tr>
+					<tr>
+						<td>By Quantity: </td>
+						<td><input type="text" ng-model="search.Quantity" /></td>
+					</tr>
+				</table>
+				<br />
+				<table border="1">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Price</th>
+							<th>Quantity</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in items | orderBy:mySortFunction | filter:search">
+							<td>{{item.Name}}</td>
+							<td>{{item.Price | currency}}</td>
+							<td>{{item.Quantity}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<br />
+	</div>
+
+
+	<script src="https://code.angularjs.org/1.2.16/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

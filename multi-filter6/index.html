@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Filteri</title>
+</head>
+
+<body ng-app="app">
+
+	<div ng-controller='myController'>
+		<h3>Records: {{(projects|filter:filter).length}} of {{projects.length}}</h3>
+		<p>
+			<input type="checkbox" ng-click="uidFilter" ng-model="filterActive">filter if uid > 0</p>
+				<p><input type="text" name="generalSearch" placeholder="Search Project Title" ng-model="filter.name"></p>
+	  <p><select ng-model="filter.stateID" 
+			  ng-options="item.stateID as item.state for item in st_option"></select>
+	  <select ng-model="filter.countyID" 
+			  ng-options="item.countyID as item.county for item in co_option | filter:{ co_state_id : filter.stateID }">
+		  </select></p>
+			
+	  <p><a href="" id="clear-filter" ng-click="clearFilter()">Reset Filters</a></p>
+
+	  <div ng-repeat="project in projects | filter:filter">
+		<div>
+		  <br>Name: {{ project.name }}
+		  <br>State: {{project.state}}
+		  <br>County: {{project.county}}
+		  <br>Uid: {{project.uid}}
+		  <br>
+		  <span ng-hide="{{project.stateID}} "></span>
+		  <span ng-hide="{{project.countyID}} "></span>
+		</div>
+	  </div>
+	</div>
+
+	<script src="https://code.angularjs.org/1.2.16/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
