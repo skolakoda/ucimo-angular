@@ -1,19 +1,14 @@
 angular.module('myApp')
-    .controller('PodaciKontrol', PodaciKontrol)
-    .controller('PretragaKontrol', PretragaKontrol)
+    .controller('IgraciKontrol', IgraciKontrol)
 
 
-function PretragaKontrol(){
-    var pretraga = this;
-    pretraga.aktivniFilteri = {};
-    pretraga.fraza = ''
-}   // PretragaKontrol
+function IgraciKontrol() {
+    var igraci = this;
+    igraci.fraza = '';
+    igraci.kriteriji = {};
 
-
-function PodaciKontrol() {
-    var podaci = this;
     // u servis!
-    podaci.igraci = [
+    igraci.spisak = [
         {id: 1, ime: 'Dallas Mavericks', sport: 'Basketball', grad: 'Dallas', istaknut: true},
         {id: 2, ime: 'Dallas Cowboys', sport: 'Football', grad: 'Dallas', istaknut: false},
         {id: 3, ime: 'New York Knicks', sport: 'Basketball', grad: 'New York', istaknut: false},
@@ -25,5 +20,5 @@ function PodaciKontrol() {
         {id: 9, ime: 'Dallas Stars', sport: 'Hockey', grad: 'Dallas', istaknut: false},
         {id: 10, ime: 'Boston Bruins', sport: 'Hockey', grad: 'Boston', istaknut: true}
     ];
-    podaci.gradovi = ['Dallas', 'Los Angeles', 'Boston', 'New York'];
-}   // PodaciKontrol
+    igraci.gradovi = ['Dallas', 'Los Angeles', 'Boston', 'New York'];
+}   // IgraciKontrol

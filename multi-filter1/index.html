@@ -3,56 +3,54 @@
 
 <head lang="en">
   <meta charset="utf-8">
-  <title>Multi pretraga</title>
+  <title>Multi igraci</title>
 </head>
 
 <body ng-app="myApp">
 
-  <div ng-controller="PretragaKontrol as pretraga">
-    <div ng-controller="PodaciKontrol as podaci">
+  <div ng-controller="IgraciKontrol as igraci">
 
-      <form>
-        <label for="fraza-unos">Traži:</label>
-        <input ng-model="pretraga.fraza" id="fraza-unos">
-        <br/><br/>
-  
-        <label for="sport-unos">Sport:</label>
-        <select ng-model="pretraga.aktivniFilteri.sport" id="sport-unos">
+    <form>
+      <label>Traži:
+        <input ng-model="igraci.fraza">
+      </label><br/><br/>
+
+      <label>Sport:
+        <select ng-model="igraci.kriteriji.sport">
           <option ng-repeat="sport in ['Basketball', 'Hockey', 'Football']">{{sport}}</option>
         </select>
-        <br/><br/>
-  
-        <label for="grad-unos">Grad:</label>
-        <select ng-model="pretraga.aktivniFilteri.grad" id="grad-unos">
-          <option ng-repeat="grad in podaci.gradovi">{{grad}}</option>
+      </label><br/><br/>
+
+      <label>Grad:
+        <select ng-model="igraci.kriteriji.grad">
+          <option ng-repeat="grad in igraci.gradovi">{{grad}}</option>
         </select>
-        <br/><br/>
-  
-        <label>Istaknuti:</label>
-        <input type="checkbox" ng-model="pretraga.aktivniFilteri.istaknut" />
-        <br/><br/>
-      </form>
-  
-      <table>
-        <thead>
-        <tr>
-          <th>Ime</th>
-          <th>Sport</th>
-          <th>Grad</th>
-          <th>Istaknut</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="team in podaci.igraci | filter:pretraga.aktivniFilteri | filter:pretraga.fraza">
-          <td>{{team.ime}}</td>
-          <td>{{team.sport}}</td>
-          <td>{{team.grad}}</td>
-          <td>{{team.istaknut}}</td>
-        </tr>
-        </tbody>
-      </table>
+      </label><br/><br/>
+
+      <label>Istaknuti:
+        <input type="checkbox" ng-model="igraci.kriteriji.istaknut" />
+      </label><br/><br/>
+    </form>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Ime</th>
+        <th>Sport</th>
+        <th>Grad</th>
+        <th>Istaknut</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="team in igraci.spisak | filter:igraci.kriteriji | filter:igraci.fraza">
+        <td>{{team.ime}}</td>
+        <td>{{team.sport}}</td>
+        <td>{{team.grad}}</td>
+        <td>{{team.istaknut}}</td>
+      </tr>
+      </tbody>
+    </table>
       
-    </div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
