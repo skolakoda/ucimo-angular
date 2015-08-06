@@ -10,15 +10,20 @@
         <p>Kriteriji: </p>
 
         <label>
-            <input type="checkbox" ng-model='kriteriji.vrsta1' ng-true-value='skup' ng-false-value='' />
+            <input type="checkbox" ng-model='kriteriji.skupoca' ng-true-value='skup' ng-false-value='' />
             Skupi
         </label>
 
         <label>
-            <input type="checkbox" ng-model='kriteriji.vrsta2' ng-true-value='jeftin' ng-false-value='' />
+            <input type="checkbox" ng-model='kriteriji.jeftinoca' ng-true-value='jeftin' ng-false-value='' />
             Jeftini
         </label>
 
+		<label>
+            <input type="checkbox" ng-model='kriteriji.slobodan' />
+            Slobodni
+        </label>
+		
         <br/><br/>
         <table id="hotels">
             <tr>
@@ -26,12 +31,14 @@
                 <th>Ocena</th>
                 <th>Vrsta</th>
                 <th>Cena</th>
+				<th>Slobodno</th>
             </tr>
-            <tr ng-repeat="hotel in hotels | filter:kriteriji.vrsta1 | filter:kriteriji.vrsta2">
+            <tr ng-repeat="hotel in hotels | filter:{ vrsta: kriteriji.skupoca } | filter:{ vrsta: kriteriji.jeftinoca } | filter:{ slobodan: kriteriji.slobodan } ">
                 <td>{{hotel.ime}}</td>
                 <td>{{hotel.ocena}}</td>
                 <td>{{hotel.vrsta}}</td>
                 <td>{{hotel.cena}}</td>
+				<td>{{hotel.slobodan}}</td>
             </tr>
         </table>
       </div>
