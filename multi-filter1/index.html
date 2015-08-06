@@ -12,7 +12,7 @@
 
     <form>
       <label>Traži:
-        <input ng-model="igraci.fraza">
+        <input ng-model="igraci.trazeno">
       </label><br/><br/>
 
       <label>Sport:
@@ -42,7 +42,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr ng-repeat="team in igraci.spisak | filter:igraci.kriteriji | filter:igraci.fraza">
+      <tr ng-repeat="team in igraci.spisak | filter:igraci.kriteriji | filter:igraci.trazeno">
         <td>{{team.ime}}</td>
         <td>{{team.sport}}</td>
         <td>{{team.grad}}</td>

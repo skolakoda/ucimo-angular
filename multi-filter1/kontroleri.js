@@ -4,7 +4,7 @@ angular.module('myApp')
 
 function IgraciKontrol() {
     var igraci = this;
-    igraci.fraza = '';
+    igraci.trazeno = '';
     igraci.kriteriji = {};
 
     // u servis!
