@@ -1,15 +1,24 @@
 <!DOCTYPE html>
-<html data-ng-app="App">
+<html ng-app="App">
   <head>
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <title>Filteri hoteli</title>
   </head>
 
-  <body data-ng-controller="TestController">
-        <h4>Filters</h4>
-        <input type="checkbox" data-ng-model='search.type1' data-ng-true-value='luxury' data-ng-false-value='' /> Luxury &nbsp;&nbsp;&nbsp;
-        <input type="checkbox" data-ng-model='search.type2' data-ng-true-value='double suite' data-ng-false-value='' /> Double suite    
+  <body ng-controller="HoteliKontrol">
+        <p>Izaberi: </p>
+
+        <label>
+            <input type="checkbox" ng-model='search.type1' ng-true-value='luxury' ng-false-value='' />
+            Luxury
+        </label>
+
+        <label>
+            <input type="checkbox" ng-model='search.type2' ng-true-value='double suite' ng-false-value='' />
+            Double suite
+        </label>
+
+        <br/><br/>
         <table id="hotels">
             <tr>
                 <th>Hotel Name</th>
@@ -17,13 +26,16 @@
                 <th>Hotel type</th>
                 <th>Hotel Price</th>
             </tr>
-            <tr data-ng-repeat="hotel in hotels | filter:search.type1 | filter:search.type2">
+            <tr ng-repeat="hotel in hotels | filter:search.type1 | filter:search.type2">
                 <td>{{hotel.name}}</td>
                 <td>{{hotel.star}}</td>
                 <td>{{hotel.type}}</td>
                 <td>{{hotel.price}}</td>
             </tr>
         </table>
+
+        <script src="https://code.angularjs.org/1.2.16/angular.min.js"></script>
+        <script src="script.js"></script>
     </body>
 
 </html>
