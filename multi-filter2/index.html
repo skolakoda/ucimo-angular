@@ -10,12 +10,12 @@
         <p>Izaberi: </p>
 
         <label>
-            <input type="checkbox" ng-model='search.type1' ng-true-value='skup' ng-false-value='' />
+            <input type="checkbox" ng-model='kriteriji.type1' ng-true-value='skup' ng-false-value='' />
             Skupi
         </label>
 
         <label>
-            <input type="checkbox" ng-model='search.type2' ng-true-value='jeftin' ng-false-value='' />
+            <input type="checkbox" ng-model='kriteriji.type2' ng-true-value='jeftin' ng-false-value='' />
             Jeftini
         </label>
 
@@ -27,7 +27,7 @@
                 <th>Vrsta</th>
                 <th>Cena</th>
             </tr>
-            <tr ng-repeat="hotel in hotels | filter:search.type1 | filter:search.type2">
+            <tr ng-repeat="hotel in hotels | filter:kriteriji.type1 | filter:kriteriji.type2">
                 <td>{{hotel.ime}}</td>
                 <td>{{hotel.ocena}}</td>
                 <td>{{hotel.vrsta}}</td>
