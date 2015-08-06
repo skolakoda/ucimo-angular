@@ -1,22 +1,22 @@
 angular
     .module('multiFilter')
-    .filter('prikaziZanrove', prikaziZanrove);
+    .filter('proberiPoZanru', proberiPoZanru);
 
 
-function prikaziZanrove() {
+function proberiPoZanru() {
     return function(sviFilmovi, izabraniZanrovi) {
-        var filmovi = {
+        var podaci = {
             izabraniZanrovi: izabraniZanrovi,
-            odabrani: []
+            odabraniFilmovi: []
         };
-        angular.forEach(sviFilmovi, proveriZanr, filmovi);
-        return filmovi.odabrani;
+        angular.forEach(sviFilmovi, proveriZanr, podaci);   // podaci su this
+        return podaci.odabraniFilmovi;
     };
-}   // prikaziZanrove
+}   // proberiPoZanru
 
 
 function proveriZanr(film) {
     if (this.izabraniZanrovi[film.zanr] === true) {
-        this.odabrani.push(film);
+        this.odabraniFilmovi.push(film);
     }
 }   // proveriZanr

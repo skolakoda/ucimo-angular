@@ -17,7 +17,7 @@
             <input type="checkbox" ng-model="filmovi.izabraniZanrovi.komedija" /> Komedija
         </label>
         <ul>
-            <li ng-repeat="film in filmovi.svi | prikaziZanrove: filmovi.izabraniZanrovi">{{film.naziv}}: {{film.zanr}}</li>
+            <li ng-repeat="film in filmovi.svi | proberiPoZanru: filmovi.izabraniZanrovi">{{film.naziv}}: {{film.zanr}}</li>
         </ul>
     </div>
 

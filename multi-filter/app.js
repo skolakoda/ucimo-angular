@@ -1,37 +1,40 @@
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function ($scope) {
+angular.module('myApp', [])
+    .controller('VinaKontrol', VinaKontrol);
 
-    $scope.vina = [
-        { ime: "Vino A", vrsta: "crveno" },
-        { ime: "Vino B", vrsta: "crveno" },
-        { ime: "Vino C", vrsta: "belo" },
-        { ime: "Vino D", vrsta: "crveno" },
-        { ime: "Vino E", vrsta: "crveno" },
-        { ime: "Vino F", vrsta: "belo" },
-        { ime: "Vino G", vrsta: "shampanjac"},
-        { ime: "Vino H", vrsta: "shampanjac" }
-    ];
 
+function VinaKontrol($scope) {
+    var vina = this;
     $scope.izabrano = {};
 
-    $scope.nadjiVrste = function () {
-        return ($scope.vina).map(function (w) {
+    vina.spisak = [
+        { ime: "vino A", vrsta: "crveno" },
+        { ime: "vino B", vrsta: "crveno" },
+        { ime: "vino C", vrsta: "belo" },
+        { ime: "vino D", vrsta: "crveno" },
+        { ime: "vino E", vrsta: "crveno" },
+        { ime: "vino F", vrsta: "belo" },
+        { ime: "vino G", vrsta: "shampanjac"},
+        { ime: "vino H", vrsta: "shampanjac" }
+    ];
+
+    vina.nadjiVrste = function () {
+        return (vina.spisak).map(function (w) {
             return w.vrsta;
         }).filter(function (w, index, niz) {
             return niz.indexOf(w) === index;
         });
     };
 
-    $scope.proberiPoVrsti = function (Vino) {
-        return $scope.izabrano[Vino.vrsta] || noFilter($scope.izabrano);
+    vina.proberiPoVrsti = function (vino) {
+        return $scope.izabrano[vino.vrsta] || prikaziSve($scope.izabrano);
     };
 
-    function noFilter(izabrano) {
-        for (var key in izabrano) {
-            if (izabrano[key]) {
-                return false;
+    function prikaziSve(izabrano) {
+        for (var stavka in izabrano) {
+            if (izabrano[stavka]) {
+                return false;           // ako je ista izabrano, ne prikazuj sve
             }
         }
-        return true;
+        return true;                    // ako nije nista, prikazi sve
     }
-});
+}

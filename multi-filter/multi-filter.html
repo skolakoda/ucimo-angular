@@ -6,10 +6,10 @@
 </head>
 <body ng-app="myApp">
 
-    <div ng-controller="myCtrl">
+    <div ng-controller="VinaKontrol as vina">
 
-        <b>Vrste vina:</b>
-        <div ng-repeat="vrsta in nadjiVrste()">
+        <b>Vrste spisak:</b>
+        <div ng-repeat="vrsta in vina.nadjiVrste()">
             <label>
                 <input type="checkbox" ng-model="izabrano[vrsta]" /> {{vrsta}}
             </label>
@@ -17,7 +17,7 @@
         <hr>
 
         <b>Rezultati:</b>
-        <div ng-repeat="vino in nadjeno = (vina | filter:proberiPoVrsti)">
+        <div ng-repeat="vino in vina.spisak | filter:vina.proberiPoVrsti">
             {{vino.ime}} ({{vino.vrsta}})
         </div>
     </div>
