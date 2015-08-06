@@ -8,15 +8,15 @@
 
     <div ng-controller="VinaKontrol as vina">
 
-        <b>Vrste spisak:</b>
+        <b>Spisak vrsti:</b>
         <div ng-repeat="vrsta in vina.nadjiVrste()">
             <label>
-                <input type="checkbox" ng-model="izabrano[vrsta]" /> {{vrsta}}
+                <input type="checkbox" ng-model="vina.izabrano[vrsta]" /> {{vrsta}}
             </label>
         </div>
         <hr>
 
-        <b>Rezultati:</b>
+        <b>Izabrano:</b>
         <div ng-repeat="vino in vina.spisak | filter:vina.proberiPoVrsti">
             {{vino.ime}} ({{vino.vrsta}})
         </div>

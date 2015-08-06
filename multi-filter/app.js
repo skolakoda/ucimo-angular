@@ -4,7 +4,7 @@ angular.module('myApp', [])
 
 function VinaKontrol($scope) {
     var vina = this;
-    $scope.izabrano = {};
+    vina.izabrano = {};
 
     vina.spisak = [
         { ime: "vino A", vrsta: "crveno" },
@@ -26,7 +26,7 @@ function VinaKontrol($scope) {
     };
 
     vina.proberiPoVrsti = function (vino) {
-        return $scope.izabrano[vino.vrsta] || prikaziSve($scope.izabrano);
+        return vina.izabrano[vino.vrsta] || prikaziSve(vina.izabrano);
     };
 
     function prikaziSve(izabrano) {
