@@ -1,41 +1,42 @@
 <!DOCTYPE html>
-<html ng-app="App">
+<html>
   <head>
     <meta charset="UTF-8">
     <title>Filteri hoteli</title>
   </head>
+  <body ng-app="App">
 
-  <body ng-controller="HoteliKontrol">
+      <div ng-controller="HoteliKontrol">
         <p>Izaberi: </p>
 
         <label>
-            <input type="checkbox" ng-model='search.type1' ng-true-value='luxury' ng-false-value='' />
-            Luxury
+            <input type="checkbox" ng-model='search.type1' ng-true-value='skup' ng-false-value='' />
+            Skupi
         </label>
 
         <label>
-            <input type="checkbox" ng-model='search.type2' ng-true-value='double suite' ng-false-value='' />
-            Double suite
+            <input type="checkbox" ng-model='search.type2' ng-true-value='jeftin' ng-false-value='' />
+            Jeftini
         </label>
 
         <br/><br/>
         <table id="hotels">
             <tr>
-                <th>Hotel Name</th>
-                <th>Star Rating</th>
-                <th>Hotel type</th>
-                <th>Hotel Price</th>
+                <th>Ime</th>
+                <th>Ocena</th>
+                <th>Vrsta</th>
+                <th>Cena</th>
             </tr>
             <tr ng-repeat="hotel in hotels | filter:search.type1 | filter:search.type2">
-                <td>{{hotel.name}}</td>
-                <td>{{hotel.star}}</td>
-                <td>{{hotel.type}}</td>
-                <td>{{hotel.price}}</td>
+                <td>{{hotel.ime}}</td>
+                <td>{{hotel.ocena}}</td>
+                <td>{{hotel.vrsta}}</td>
+                <td>{{hotel.cena}}</td>
             </tr>
         </table>
+      </div>
 
-        <script src="https://code.angularjs.org/1.2.16/angular.min.js"></script>
-        <script src="script.js"></script>
+      <script src="https://code.angularjs.org/1.2.16/angular.min.js"></script>
+      <script src="app.js"></script>
     </body>
-
 </html>
