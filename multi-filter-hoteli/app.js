@@ -1,3 +1,7 @@
+// pravi atribute kriterija, na osnovu kojih prikazuje zajednicki skup
+// ng-true-value daje strunu za svaki kriteriji.atribut
+// (bolje resenje u filmovima gde samo poredi naziv atributa)
+
 angular.module("App", [])
     .controller('HoteliKontrol', HoteliKontrol);
 
@@ -6,7 +10,6 @@ function HoteliKontrol() {
 	var hoteli = this;
 
     hoteli.kriteriji = {
-		//skupoca: "skup",
 		slobodan: true
     };
 
