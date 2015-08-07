@@ -1,3 +1,5 @@
+// ima zgodan mehanizam za inicijalno selektovanje svih kriterija
+
 angular.module('musterije', ['filteri'])
     .controller('MusterijeKontrol', MusterijeKontrol)
 	
@@ -19,13 +21,25 @@ function MusterijeKontrol($scope) {
         grad: 'Miami'
     }];
 
-    musterije.kriteriji = {};
+    musterije.kriteriji = {
+        "Resnik": true
+    };
 
+    // postavlja sve kriterije chekirane
+    for(var i in musterije.spisak){
+        var grad = musterije.spisak[i].grad;
+        musterije.kriteriji[grad] = true;
+    }
+
+
+    // pretvoriti u filter
+    // gleda da li je grad prosledjene musterije istinit u kriterijima
     musterije.proveriGrad = function() {
         return function(musterija) {
             if (musterije.kriteriji[musterija.grad] === true) {
                 return true;
             }
         }
-    };
+    }   // proveriGrad
+
 }	// MusterijeKontrol
