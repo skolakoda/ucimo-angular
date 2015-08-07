@@ -5,10 +5,15 @@ angular.module('radnja', [])
 function ProizvodiKontrol()  {
 	var proizvodi = this;
 
+	proizvodi.kriterijSortiranja = "cena";
+	proizvodi.pretraga = {
+		ime: "sa"
+	};
+
 	proizvodi.spisak = [
-		{Ime: "Sapun", Cena: "25", Kolicina: "10"},
-		{Ime: "Krema", Cena: "50", Kolicina: "15"},
-		{Ime: "Shampon", Cena: "100", Kolicina: "5"}
+		{ime: "Sapun", cena: "25", kolicina: "10"},
+		{ime: "Krema", cena: "50", kolicina: "15"},
+		{ime: "Sampon", cena: "100", kolicina: "5"}
 	];
 
 	proizvodi.sortiraj = function(item) {
@@ -16,4 +21,4 @@ function ProizvodiKontrol()  {
 			return item[proizvodi.kriterijSortiranja];
 		return parseInt(item[proizvodi.kriterijSortiranja]);
 	}
-}
+}	// ProizvodiKontrol

@@ -9,40 +9,40 @@
 	<div ng-controller="ProizvodiKontrol as proizvodi">
 		<p>Kriterijum sortiranja:
 			<select ng-model="proizvodi.kriterijSortiranja">
-				<option value="Ime">Ime</option>
-				<option value="Cena">Cena</option>
-				<option value="Kolicina">Kolicina</option>
+				<option value="ime">ime</option>
+				<option value="cena">cena</option>
+				<option value="kolicina">kolicina</option>
 			</select>
 		</p>
 
 		<p>Pretraži po: </p>
 
 		<div>Imenu: </div>
-		<input type="text" ng-model="pretraga.Ime" />
+		<input type="text" ng-model="proizvodi.pretraga.ime" />
 
 		<div>Ceni: </div>
-		<input type="text" ng-model="pretraga.Cena" />
+		<input type="text" ng-model="proizvodi.pretraga.cena" />
 
 		<div>Kolicini: </div>
-		<input type="text" ng-model="pretraga.Kolicina" />
+		<input type="text" ng-model="proizvodi.pretraga.kolicina" />
 
 		<div>Svemu: </div>
-		<input type="text" ng-model="pretraga.$" />
+		<input type="text" ng-model="proizvodi.pretraga.$" />
 
 		<p>Rezultati: </p>
 		<table border="1">
 			<thead>
 			<tr>
-				<th>Ime</th>
-				<th>Cena</th>
-				<th>Kolicina</th>
+				<th>ime</th>
+				<th>cena</th>
+				<th>kolicina</th>
 			</tr>
 			</thead>
 			<tbody>
-			<tr ng-repeat="proizvod in proizvodi.spisak | orderBy: proizvodi.sortiraj | filter:pretraga">
-				<td>{{proizvod.Ime}}</td>
-				<td>{{proizvod.Cena | currency}}</td>
-				<td>{{proizvod.Kolicina}}</td>
+			<tr ng-repeat="proizvod in proizvodi.spisak | orderBy: proizvodi.sortiraj | filter:proizvodi.pretraga">
+				<td>{{proizvod.ime}}</td>
+				<td>{{proizvod.cena | currency}}</td>
+				<td>{{proizvod.kolicina}}</td>
 			</tr>
 			</tbody>
 		</table>
