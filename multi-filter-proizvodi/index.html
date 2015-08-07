@@ -8,7 +8,7 @@
 
 	<div ng-controller="ProizvodiKontrol as proizvodi">
 		<p>Kriterijum sortiranja:
-			<select ng-model="proizvodi.kriterijSortiranja">
+			<select ng-model="proizvodi.kriterij">
 				<option value="ime">ime</option>
 				<option value="cena">cena</option>
 				<option value="kolicina">kolicina</option>
@@ -18,16 +18,16 @@
 		<p>Pretraži po: </p>
 
 		<div>Imenu: </div>
-		<input type="text" ng-model="proizvodi.pretraga.ime" />
+		<input type="text" ng-model="proizvodi.kriteriji.ime" />
 
 		<div>Ceni: </div>
-		<input type="text" ng-model="proizvodi.pretraga.cena" />
+		<input type="text" ng-model="proizvodi.kriteriji.cena" />
 
 		<div>Kolicini: </div>
-		<input type="text" ng-model="proizvodi.pretraga.kolicina" />
+		<input type="text" ng-model="proizvodi.kriteriji.kolicina" />
 
 		<div>Svemu: </div>
-		<input type="text" ng-model="proizvodi.pretraga.$" />
+		<input type="text" ng-model="proizvodi.kriteriji.$" />
 
 		<p>Rezultati: </p>
 		<table border="1">
@@ -39,7 +39,7 @@
 			</tr>
 			</thead>
 			<tbody>
-			<tr ng-repeat="proizvod in proizvodi.spisak | orderBy: proizvodi.sortiraj | filter:proizvodi.pretraga">
+			<tr ng-repeat="proizvod in proizvodi.spisak | orderBy: proizvodi.sortiraj | filter:proizvodi.kriteriji">
 				<td>{{proizvod.ime}}</td>
 				<td>{{proizvod.cena | currency}}</td>
 				<td>{{proizvod.kolicina}}</td>

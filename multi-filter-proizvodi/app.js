@@ -1,3 +1,6 @@
+// glupa i beskorisna kriteriji po ceni i kolicini
+// treba stringove umesto brojeva
+
 angular.module('radnja', [])
 	.controller('ProizvodiKontrol', ProizvodiKontrol)
 
@@ -5,9 +8,9 @@ angular.module('radnja', [])
 function ProizvodiKontrol()  {
 	var proizvodi = this;
 
-	proizvodi.kriterijSortiranja = "cena";
-	proizvodi.pretraga = {
-		ime: "sa"
+	proizvodi.kriterij = "cena";		// default
+	proizvodi.kriteriji = {
+		ime: ""
 	};
 
 	proizvodi.spisak = [
@@ -16,9 +19,10 @@ function ProizvodiKontrol()  {
 		{ime: "Sampon", cena: "100", kolicina: "5"}
 	];
 
-	proizvodi.sortiraj = function(item) {
-		if(isNaN(item[proizvodi.kriterijSortiranja]))
-			return item[proizvodi.kriterijSortiranja];
-		return parseInt(item[proizvodi.kriterijSortiranja]);
+	proizvodi.sortiraj = function(proizvod) {
+		// ako kriterij nije broj, ostavlja strunu, ako je broj parsira
+		if(isNaN(proizvod[proizvodi.kriterij]))
+			return proizvod[proizvodi.kriterij];
+		return parseInt(proizvod[proizvodi.kriterij]);
 	}
 }	// ProizvodiKontrol
