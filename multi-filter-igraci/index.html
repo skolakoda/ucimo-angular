@@ -18,12 +18,14 @@
 
       <label>Po sportu:
         <select ng-model="igraci.kriteriji.sport">
+          <option></option>
           <option ng-repeat="sport in ['kosarka', 'hokej', 'fudbal']">{{sport}}</option>
         </select>
       </label><br/><br/>
 
       <label>Po gradu:
         <select ng-model="igraci.kriteriji.grad">
+          <option></option>
           <option ng-repeat="grad in igraci.gradovi">{{grad}}</option>
         </select>
       </label><br/><br/>

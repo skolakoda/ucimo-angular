@@ -1,7 +1,5 @@
-// problem, kada pritisnem i pustim istaknuto, prikazuje samo false (u pocetku prikazuje sve)
-// resenje koristiti ng-false-value
-// checkbox moze da prikazuje iskljucivo true/false ili ukljucivo true/sve
-
+// checkbox moze da prikazuje true/false ili true/sve
+// po defoltu je true/false, sa ng-false-value moze prazna struna
 
 angular.module('myApp', [])
     .controller('IgraciKontrol', IgraciKontrol)
