@@ -9,8 +9,7 @@
     <div ng-controller="KvaciceKontrol as kvacice">
         <input placeholder="Trazi" ng-model="kvacice.kriteriji.upit"/>        
         <label ng-repeat="kvacica in kvacice.spisak">
-            {{kvacica.ime}}
-            <input type="checkbox" ng-model="kvacica.izabrano"/>
+            <input type="checkbox" ng-model="kvacica.izabrano"/> {{kvacica.ime}}
         </label>
     </div>
     <hr />

@@ -4,6 +4,11 @@ angular.module('someApp')
 	.factory('pretragaServis', pretragaServis)
 
 
+function pretragaServis(){
+    return { upit: "" }
+}	// pretragaServis
+
+
 function kvaciceServis() {
     var kvaciceServis = [
         { ime: 'grupa 1', grupa: 1 },
@@ -29,7 +34,3 @@ function listaServis() {
     ];
     return listaServis;
 }	// listaServis
-
-function pretragaServis(){
-	return { upit: "" }
-}	// pretragaServis
