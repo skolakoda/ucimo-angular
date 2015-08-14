@@ -12,13 +12,13 @@
   </style>
 </head>
 
-<body ng-app="formaModul" class="container">
+<body ng-app="formularModul" class="container">
 
   <section ng-controller="formKontrol as forma">
     <h2>Kontakt</h2>
 
-    <p id="messages" ng-show="forma.greske" ng-bind="forma.greske" class="alert alert-success"></p>
-    <p ng-show="forma.progres.active()" class="slanje">Šalje se...</p>
+    <p id="messages" ng-show="forma.obavestenje" ng-bind="forma.obavestenje" class="alert alert-success"></p>
+    <p ng-show="forma.napredak.active()" class="slanje">Šalje se...</p>
 
     <form name="obrazac" novalidate role="form">
 
@@ -41,23 +41,23 @@
         <label for="telefon">Telefon</label>
         <input type="tel" name="telefon" ng-model="forma.telefon" class="form-control" />
 
-
         <label for="email">Email</label>
         <span class="label label-danger" ng-show="forma.poslato && obrazac.email.$error.required">Obavezno!</span>
         <span class="label label-danger" ng-show="forma.poslato && obrazac.$error.email">Ovo ne liči na email</span>
         <input type="email" name="email" ng-model="forma.email" class="form-control" required />
 
-        <label for="url">URL</label>
-        <span class="label label-danger" ng-show="forma.poslato && obrazac.$error.url">Invalid URL format!</span>
-        <input type="url" name="url" ng-model="forma.url" class="form-control" />
-
         <label for="comments">Vaša poruka</label>
         <span class="label label-danger" ng-show="forma.poslato && obrazac.comments.$error.required">Obavezno!</span>
         <textarea name="comments" ng-model="forma.komentari" class="form-control" required></textarea>
 
-      <button ng-disabled="forma.progres.active()" ng-click="forma.potvrdi(obrazac)" class="btn btn-default">Pošalji</button>
+        <br/>
+      <button ng-disabled="forma.napredak.active()" ng-click="forma.posalji(obrazac)" class="btn btn-default">Pošalji</button>
     </form>
 
+      <br/>
+      <p><strong>Napomena: </strong><br/>
+          1. Polja: Ime i prezime, E-mail i Vaša poruka moraju biti popunjena.<br/>
+          2. Pre nego što pošaljete Vašu poruku, morate uneti sigurnosni kod koji se nalazi u žutom pravougaoniku.</p>
 
   </section>
 
