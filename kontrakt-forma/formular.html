@@ -13,18 +13,19 @@
 </head>
 
 <body ng-app="formaModul" class="container">
-  <h2>Kontakt</h2>
 
-  <div ng-controller="formKontrol as forma">
-    <div id="messages" class="alert alert-success" ng-show="forma.greske" ng-bind="forma.greske"></div>
-    <div ng-show="forma.progres.active()" class="slanje">Šalje se...</div>
+  <section ng-controller="formKontrol as forma">
+    <h2>Kontakt</h2>
+
+    <p id="messages" ng-show="forma.greske" ng-bind="forma.greske" class="alert alert-success"></p>
+    <p ng-show="forma.progres.active()" class="slanje">Šalje se...</p>
 
     <form name="obrazac" novalidate role="form">
 
         <label for="namenjeno">Namenjeno: </label>
         <span class="label label-danger" ng-show="forma.poslato && obrazac.namenjeno.$error.required">Obavezno!</span>
-        <select name="namenjeno" ng-model="forma.namenjeno" ng-options="id as value for (id, value) in forma.listaOpcija" class="form-control" required>
-          <option value=""></option>
+        <select name="namenjeno" ng-model="forma.namenjeno" class="form-control"
+                ng-options="kljuc as vrednost for (kljuc, vrednost) in forma.listaOpcija" required>
         </select>
 
         <label for="name">Ime i prezime</label>
@@ -38,8 +39,8 @@
         <input name="naziv_firme" ng-model="forma.nazivFirme" class="form-control" />
 
         <label for="telefon">Telefon</label>
-        <input name="telefon" ng-model="forma.telefon" class="form-control" />
-        
+        <input type="tel" name="telefon" ng-model="forma.telefon" class="form-control" />
+
 
         <label for="email">Email</label>
         <span class="label label-danger" ng-show="forma.poslato && obrazac.email.$error.required">Obavezno!</span>
@@ -58,7 +59,7 @@
     </form>
 
 
-  </div>
+  </section>
 
   <script type="text/javascript" src="http://code.angularjs.org/1.2.25/angular.min.js"></script>
   <script type="text/javascript" src="js/modules/promise-tracker.js"></script>

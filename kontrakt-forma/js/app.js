@@ -5,11 +5,10 @@ function formKontrol($http, $log, promiseTracker, $timeout) {
   var forma = this;
 
   forma.listaOpcija = {
-    'bug': 'Report a Bug',
-    'account': 'Account Problems',
-    'mobile': 'Mobile',
-    'user': 'Report a Malicious User',
-    'other': 'Other'
+    'prodaja karata': 'Službi za prodaju karata',
+    'saradnja': 'Službi za saradnju',
+    'marketing sluzba': 'Službi za marketing (reklame)',
+    'tehnicka sluzba': 'Tehničkoj podršci'
   };
 
   forma.progres = promiseTracker();	  		// gonicObecanja da prati slanje forme
