@@ -1,54 +1,64 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="formaModul">
+<html lang="en">
 <head>
   <meta charset="utf-8"/>
   <title>AngularJS Form</title>
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <style>
+	  .slanje {
+		  color: red; 
+		  font-size: 50px;
+		}
+  </style>
 </head>
-<body class="container" ng-cloak>
-  
-  <h2>AngularJs form</h2>
 
-    <form ng-controller="formKontrol as forma" name="formular" novalidate role="form">
-      <div id="messages" class="alert alert-success" ng-show="forma.greske" ng-bind="forma.greske"></div>
-      <div ng-show="forma.progres.active()" style="color: red; font-size: 50px;">Sending&hellip;</div>
+<body ng-app="formaModul" class="container">
+  <h2>Kontakt</h2>
 
-      <div class="form-group">
-        <label for="svrhaObracanja">Namenjeno: </label>
-        <span class="label label-danger" ng-show="forma.potvrdjeno && formular.svrhaObracanja.$error.required">Obavezno!</span>
-        <select name="svrhaObracanja" ng-model="forma.svrhaObracanja" ng-options="id as value for (id, value) in forma.listaOpcija" class="form-control" required>
+  <div ng-controller="formKontrol as forma">
+    <div id="messages" class="alert alert-success" ng-show="forma.greske" ng-bind="forma.greske"></div>
+    <div ng-show="forma.progres.active()" class="slanje">Šalje se...</div>
+
+    <form name="obrazac" novalidate role="form">
+
+        <label for="namenjeno">Namenjeno: </label>
+        <span class="label label-danger" ng-show="forma.poslato && obrazac.namenjeno.$error.required">Obavezno!</span>
+        <select name="namenjeno" ng-model="forma.namenjeno" ng-options="id as value for (id, value) in forma.listaOpcija" class="form-control" required>
           <option value=""></option>
         </select>
-      </div>
 
-      <div class="form-group">
-        <label for="name">Your Name </label>
-        <span class="label label-danger" ng-show="forma.potvrdjeno && formular.name.$error.required">Obavezno!</span>
-        <input type="text" name="name" ng-model="forma.ime" class="form-control" required />
-      </div>
+        <label for="name">Ime i prezime</label>
+        <span class="label label-danger" ng-show="forma.poslato && obrazac.name.$error.required">Obavezno!</span>
+        <input name="name" ng-model="forma.ime" class="form-control" required />
 
-      <div class="form-group">
-        <label for="email">Your E-mail address</label>
-        <span class="label label-danger" ng-show="forma.potvrdjeno && formular.email.$error.required">Obavezno!</span>
-        <span class="label label-danger" ng-show="forma.potvrdjeno && formular.$error.email">Invalid email!</span>
+        <label for="funkcija">Funkcija</label>
+        <input name="funkcija" ng-model="forma.funkcija" class="form-control" />
+
+        <label for="naziv_firme">Naziv firme</label>
+        <input name="naziv_firme" ng-model="forma.nazivFirme" class="form-control" />
+
+        <label for="telefon">Telefon</label>
+        <input name="telefon" ng-model="forma.telefon" class="form-control" />
+        
+
+        <label for="email">Email</label>
+        <span class="label label-danger" ng-show="forma.poslato && obrazac.email.$error.required">Obavezno!</span>
+        <span class="label label-danger" ng-show="forma.poslato && obrazac.$error.email">Ovo ne liči na email</span>
         <input type="email" name="email" ng-model="forma.email" class="form-control" required />
-      </div>
 
-      <div class="form-group">
-        <label for="url">URL of Relevant Page</label>
-        <span class="label label-danger" ng-show="forma.potvrdjeno && formular.$error.url">Invalid URL format!</span>
+        <label for="url">URL</label>
+        <span class="label label-danger" ng-show="forma.poslato && obrazac.$error.url">Invalid URL format!</span>
         <input type="url" name="url" ng-model="forma.url" class="form-control" />
-      </div>
 
-      <div class="form-group">
-        <label for="comments">Description</label>
-        <span class="label label-danger" ng-show="forma.potvrdjeno && formular.comments.$error.required">Obavezno!</span>
+        <label for="comments">Vaša poruka</label>
+        <span class="label label-danger" ng-show="forma.poslato && obrazac.comments.$error.required">Obavezno!</span>
         <textarea name="comments" ng-model="forma.komentari" class="form-control" required></textarea>
-      </div>
 
-      <button ng-disabled="forma.progres.active()" ng-click="forma.potvrdi(formular)" class="btn btn-default">Submit</button>
+      <button ng-disabled="forma.progres.active()" ng-click="forma.potvrdi(obrazac)" class="btn btn-default">Pošalji</button>
     </form>
 
+
+  </div>
 
   <script type="text/javascript" src="http://code.angularjs.org/1.2.25/angular.min.js"></script>
   <script type="text/javascript" src="js/modules/promise-tracker.js"></script>

@@ -11,13 +11,13 @@ function formKontrol($http, $log, promiseTracker, $timeout) {
     'user': 'Report a Malicious User',
     'other': 'Other'
   };
-  // pravi promiseTracker da prati potvrdjivanje forme
-  forma.progres = promiseTracker();
 
-  forma.potvrdi = function(formular) {
-    forma.potvrdjeno = true;
+  forma.progres = promiseTracker();	  		// gonicObecanja da prati slanje forme
 
-    if (formular.$invalid) {
+  forma.potvrdi = function(obrazac) {
+    forma.poslato = true;
+
+    if (obrazac.$invalid) {
       return;
     }
 
@@ -27,7 +27,7 @@ function formKontrol($http, $log, promiseTracker, $timeout) {
         'callback': 'JSON_CALLBACK',
         'name': forma.ime,
         'email': forma.email,
-        'svrhaObracanja': forma.svrhaObracanja,
+        'namenjeno': forma.namenjeno,
         'url': forma.url,
         'comments': forma.komentari
       },
@@ -39,11 +39,11 @@ function formKontrol($http, $log, promiseTracker, $timeout) {
           if (data.status == 'OK') {
             forma.ime = null;
             forma.email = null;
-            forma.svrhaObracanja = null;
+            forma.namenjeno = null;
             forma.url = null;
             forma.komentari = null;
-            forma.greske = 'Your formular has been sent!';
-            forma.potvrdjeno = false;
+            forma.greske = 'Your obrazac has been sent!';
+            forma.poslato = false;
           } else {
             forma.greske = 'Oops, we received your request, but there was an error processing it.';
             $log.error(data);
