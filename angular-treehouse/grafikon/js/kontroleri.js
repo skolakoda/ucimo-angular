@@ -1,4 +1,4 @@
-angular.module('treehouseCourse')
+angular.module('anketaModul')
     .controller('korakKontrol', korakKontrol)
     .controller('korisnikKontrol', korisnikKontrol)
     .controller('anketaKontrol', anketaKontrol)
@@ -25,26 +25,26 @@ function anketaKontrol($scope, Korisnik, Anketa) {
     $scope.anketa = Anketa.get();
 
     $scope.$watch('korisnik', function() {
-        $scope.questionsForUser = filterQuestions();
+        $scope.pitanjaKorisniku = proberiPitanja();
     }, true);
 
     $scope.$watch('anketa.pitanja', function() {
-        $scope.questionsForUser = filterQuestions();
+        $scope.pitanjaKorisniku = proberiPitanja();
     }, true);
 
-    var filterQuestions = function() {
+    var proberiPitanja = function() {
         if (!$scope.korisnik || !$scope.anketa || !$scope.anketa.pitanja) {
             return;
         };
         var pitanja = $scope.anketa.pitanja;
-        var filtered = [];
+        var probrano = [];
         for (var i = 0, ii = pitanja.length; i < ii; i++) {
             var pitanje = pitanja[i];
             if (!pitanje.uslov || $scope.$eval(pitanje.uslov)) {
-                filtered.push(pitanje);
+                probrano.push(pitanje);
             };
         }
-        return filtered;
+        return probrano;
     }
 }	// anketaKontrol
 

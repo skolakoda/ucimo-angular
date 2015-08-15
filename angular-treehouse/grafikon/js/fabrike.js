@@ -1,4 +1,4 @@
-angular.module('treehouseCourse')
+angular.module('anketaModul')
     .factory('Korisnik', Korisnik)
     .factory('Anketa', Anketa)
     .factory('Rezultati', Rezultati)

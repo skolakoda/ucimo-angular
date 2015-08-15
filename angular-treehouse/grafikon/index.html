@@ -4,7 +4,7 @@
 	<link rel="stylesheet" href="css/style.css" />
   </head>
   
-  <body ng-app="treehouseCourse" ng-controller="korakKontrol">
+  <body ng-app="anketaModul" ng-controller="korakKontrol">
     <div class="main" ng-switch="korak">
   
       <div ng-switch-when="1" ng-controller="korisnikKontrol">
@@ -39,7 +39,7 @@
         <h4>{{anketa.naslov}}</h4>
         <p>Awesome, now for a few quick pitanja:</p>
         <form name="surveyQuestions" class="fields">
-          <div class="pitanje" ng-repeat="pitanje in questionsForUser">
+          <div class="pitanje" ng-repeat="pitanje in pitanjaKorisniku">
             <p class="text">
               {{pitanje.tekstPitanja}}
             </p>
