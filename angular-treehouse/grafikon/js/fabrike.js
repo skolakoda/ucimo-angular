@@ -1,25 +1,25 @@
 angular.module('treehouseCourse')
   .factory('User', function () {
-    var user = {
-      gender: null,
-      ageRange: null,
-      surveyAnswers: {}
+    var korisnik = {
+      pol: null,
+      uzrast: null,
+      odgovori: {}
     }
     return {
       get: function () {
-        return user;
+        return korisnik;
       }
     }
   })
   .factory('Survey', function () {
     var survey = {
       "title": "Treehouse Survey",
-      "questions": [
+      "pitanja": [
         {
           "id": 1,
-          "conditional": false,
-          "questionText": "What is your favorite language?",
-          "options": [
+          "uslov": false,
+          "tekstPitanja": "What is your favorite language?",
+          "opcije": [
             "JavaScript",
             "Ruby",
             "Go",
@@ -28,9 +28,9 @@ angular.module('treehouseCourse')
         },
         {
           "id": 2,
-          "conditional": false,
-          "questionText": "Do you prefer cats or dogs",
-          "options": [
+          "uslov": false,
+          "tekstPitanja": "Do you prefer cats or dogs",
+          "opcije": [
             "Cats",
             "Dogs",
             "Both are awesome",
@@ -39,9 +39,9 @@ angular.module('treehouseCourse')
         },
         {
           "id": 3,
-          "conditional": "user.ageRange == '<10'",
-          "questionText": "What was your favorite part of the 2000's",
-          "options": [
+          "uslov": "korisnik.uzrast == '<10'",
+          "tekstPitanja": "What was your favorite part of the 2000's",
+          "opcije": [
             "The internet",
             "Smartphones",
             "Rick Rolling"
@@ -49,9 +49,9 @@ angular.module('treehouseCourse')
         },
         {
           "id": 4,
-          "conditional": "user.ageRange == '20-29'",
-          "questionText": "What was your favorite part of the 90's",
-          "options": [
+          "uslov": "korisnik.uzrast == '20-29'",
+          "tekstPitanja": "What was your favorite part of the 90's",
+          "opcije": [
             "The hair",
             "The music",
             "Y2K"
@@ -59,9 +59,9 @@ angular.module('treehouseCourse')
         },
         {
           "id": 5,
-          "conditional": "user.ageRange == '30-39'",
-          "questionText": "What was your favorite part of the 80's",
-          "options": [
+          "uslov": "korisnik.uzrast == '30-39'",
+          "tekstPitanja": "What was your favorite part of the 80's",
+          "opcije": [
             "The hair",
             "The music",
             "Y2K"
@@ -69,9 +69,9 @@ angular.module('treehouseCourse')
         },
         {
           "id": 6,
-          "conditional": "user.ageRange == '40-49'",
-          "questionText": "What was your favorite part of the 70's",
-          "options": [
+          "uslov": "korisnik.uzrast == '40-49'",
+          "tekstPitanja": "What was your favorite part of the 70's",
+          "opcije": [
             "The hair",
             "The music",
             "Y2K"
@@ -79,9 +79,9 @@ angular.module('treehouseCourse')
         },
         {
           "id": 7,
-          "conditional": "user.ageRange == '50+'",
-          "questionText": "What was your favorite decade so far?",
-          "options": [
+          "uslov": "korisnik.uzrast == '50+'",
+          "tekstPitanja": "What was your favorite decade so far?",
+          "opcije": [
             "The 60's",
             "The 70's",
             "The 80's",
@@ -97,7 +97,7 @@ angular.module('treehouseCourse')
         return survey;
       },
       getQuestion: function (questionId) {
-        return _.find(survey.questions, function (question) {
+        return _.find(survey.pitanja, function (question) {
           return question.id == questionId;
         });
       }
