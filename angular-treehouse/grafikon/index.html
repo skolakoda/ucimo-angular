@@ -1,6 +1,6 @@
 <html>
   <head>
-	<title>Anketa</title>
+	<title>Anketa i grafikon</title>
 	<link rel="stylesheet" href="css/style.css" />
   </head>
   
@@ -36,7 +36,7 @@
       </div>
   
       <div ng-switch-when="2" ng-controller="anketaKontrol">
-        <h4>{{survey.title}}</h4>
+        <h4>{{anketa.title}}</h4>
         <p>Awesome, now for a few quick pitanja:</p>
         <form name="surveyQuestions" class="fields">
           <div class="question" ng-repeat="question in questionsForUser">
@@ -55,7 +55,7 @@
       </div>
   
       <div ng-switch-when="3" ng-controller="rezultatKontrol">
-        <p>Great, thanks. Here are the results so far:</p>
+        <p>Great, thanks. Here are the rezultati so far:</p>
         <div ng-repeat="result in surveyResults">
           <div grafikon="result"></div>
         </div>
@@ -66,7 +66,7 @@
       <h3>Korisnik</h3>
       <pre ng-bind="korisnik | json"></pre>
       <h3>Rezultati</h3>
-      <pre ng-bind="results | json"></pre>
+      <pre ng-bind="rezultati | json"></pre>
     </div>
   
   

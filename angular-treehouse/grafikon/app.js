@@ -15,7 +15,7 @@ angular.module('treehouseCourse', [])
         var calculateDynamics = function () {
           $scope.total = 0;
           $scope.optionColors = {};
-          _.each($scope.result.results, function (votes, option) {
+          _.each($scope.result.rezultati, function (votes, option) {
             $scope.total += votes;
             $scope.optionColors[option] = 'rgba(' + _.random(0, 255) + ',' + _.random(0, 255) + ','+ _.random(0, 255) + ',1)'
           });

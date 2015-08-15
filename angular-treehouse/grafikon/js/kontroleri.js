@@ -22,21 +22,21 @@ function korisnikKontrol($scope, Korisnik) {
 
 function anketaKontrol($scope, Korisnik, Anketa) {
     $scope.korisnik = Korisnik.get();
-    $scope.survey = Anketa.get();
+    $scope.anketa = Anketa.get();
 
     $scope.$watch('korisnik', function() {
         $scope.questionsForUser = filterQuestions();
     }, true);
 
-    $scope.$watch('survey.pitanja', function() {
+    $scope.$watch('anketa.pitanja', function() {
         $scope.questionsForUser = filterQuestions();
     }, true);
 
     var filterQuestions = function() {
-        if (!$scope.korisnik || !$scope.survey || !$scope.survey.pitanja) {
+        if (!$scope.korisnik || !$scope.anketa || !$scope.anketa.pitanja) {
             return;
         };
-        var pitanja = $scope.survey.pitanja;
+        var pitanja = $scope.anketa.pitanja;
         var filtered = [];
         for (var i = 0, ii = pitanja.length; i < ii; i++) {
             var question = pitanja[i];
@@ -61,6 +61,6 @@ function logKontrol($scope, Korisnik, Rezultati) {
 
     $scope.$watch('korisnik.odgovori', function() {
         var questionIds = _.keys($scope.korisnik.odgovori);
-        $scope.results = Rezultati.forQuestions(questionIds);
+        $scope.rezultati = Rezultati.forQuestions(questionIds);
     }, true);
 }	// logKontrol
