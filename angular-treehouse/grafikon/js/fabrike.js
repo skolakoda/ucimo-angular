@@ -20,7 +20,7 @@ function Korisnik() {
 
 function Anketa() {
     var anketa = {
-        "title": "Treehouse Anketa",
+        "naslov": "Treehouse Anketa",
         "pitanja": [{
             "id": 1,
             "uslov": false,
@@ -96,8 +96,8 @@ function Anketa() {
             return anketa;
         },
         getQuestion: function(questionId) {
-            return _.find(anketa.pitanja, function(question) {
-                return question.id == questionId;
+            return _.find(anketa.pitanja, function(pitanje) {
+                return pitanje.id == questionId;
             });
         }
     }
@@ -134,11 +134,11 @@ function Rezultati(Anketa) {
             var questionResults = [];
             for (var i = 0, ii = questionIds.length; i < ii; i++) {
                 var id = questionIds[i];
-                var result = {
-                    question: Anketa.getQuestion(id),
+                var rezultat = {
+                    pitanje: Anketa.getQuestion(id),
                     rezultati: rezultati[id]
                 };
-                questionResults.push(result);
+                questionResults.push(rezultat);
             }
             return questionResults;
         }

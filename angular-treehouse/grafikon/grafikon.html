@@ -1,13 +1,13 @@
 <div class="bar-chart">
   <h3 class="text">
-    {{result.question.tekstPitanja}} (Votes: {{total}})
+    {{rezultat.pitanje.tekstPitanja}} (Votes: {{total}})
   </h3>
-  <div class="option" ng-repeat="option in result.question.opcije">
+  <div class="option" ng-repeat="option in rezultat.pitanje.opcije">
     <p class="text">
       {{option}}
     </p>
-    <span class="bar" ng-style="{width: (100 * result.rezultati[option]/total) + '%', 'background-color': optionColors[option]}">
-      {{result.rezultati[option]}} Votes
+    <span class="bar" ng-style="{width: (100 * rezultat.rezultati[option]/total) + '%', 'background-color': optionColors[option]}">
+      {{rezultat.rezultati[option]}} Votes
     </span>
   </div>
 </div>

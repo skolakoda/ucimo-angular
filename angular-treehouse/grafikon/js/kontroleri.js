@@ -39,9 +39,9 @@ function anketaKontrol($scope, Korisnik, Anketa) {
         var pitanja = $scope.anketa.pitanja;
         var filtered = [];
         for (var i = 0, ii = pitanja.length; i < ii; i++) {
-            var question = pitanja[i];
-            if (!question.uslov || $scope.$eval(question.uslov)) {
-                filtered.push(question);
+            var pitanje = pitanja[i];
+            if (!pitanje.uslov || $scope.$eval(pitanje.uslov)) {
+                filtered.push(pitanje);
             };
         }
         return filtered;

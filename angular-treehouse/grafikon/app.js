@@ -5,17 +5,17 @@ angular.module('treehouseCourse', [])
       templateUrl: 'grafikon.html',
       replace: true,
       scope: {
-        result: '=grafikon'
+        rezultat: '=grafikon'
       },
       link: function ($scope, $element, $attrs) {
-        $scope.$watch('result', function () {
+        $scope.$watch('rezultat', function () {
           calculateDynamics();
         }, true);
 
         var calculateDynamics = function () {
           $scope.total = 0;
           $scope.optionColors = {};
-          _.each($scope.result.rezultati, function (votes, option) {
+          _.each($scope.rezultat.rezultati, function (votes, option) {
             $scope.total += votes;
             $scope.optionColors[option] = 'rgba(' + _.random(0, 255) + ',' + _.random(0, 255) + ','+ _.random(0, 255) + ',1)'
           });
