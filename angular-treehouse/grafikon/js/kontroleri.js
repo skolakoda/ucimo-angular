@@ -15,14 +15,14 @@ function korakKontrol($scope) {
 }	// korakKontrol
 
 
-function korisnikKontrol($scope, User) {
-    $scope.korisnik = User.get();
+function korisnikKontrol($scope, Korisnik) {
+    $scope.korisnik = Korisnik.get();
 }	// korisnikKontrol
 
 
-function anketaKontrol($scope, User, Survey) {
-    $scope.korisnik = User.get();
-    $scope.survey = Survey.get();
+function anketaKontrol($scope, Korisnik, Anketa) {
+    $scope.korisnik = Korisnik.get();
+    $scope.survey = Anketa.get();
 
     $scope.$watch('korisnik', function() {
         $scope.questionsForUser = filterQuestions();
@@ -49,18 +49,18 @@ function anketaKontrol($scope, User, Survey) {
 }	// anketaKontrol
 
 
-function rezultatKontrol($scope, User, Results) {
-    var korisnik = User.get();
+function rezultatKontrol($scope, Korisnik, Rezultati) {
+    var korisnik = Korisnik.get();
     var questionIds = _.keys(korisnik.odgovori);
-    $scope.surveyResults = Results.forQuestions(questionIds);
+    $scope.surveyResults = Rezultati.forQuestions(questionIds);
 }	// rezultatKontrol
 
 
-function logKontrol($scope, User, Results) {
-    $scope.korisnik = User.get();
+function logKontrol($scope, Korisnik, Rezultati) {
+    $scope.korisnik = Korisnik.get();
 
     $scope.$watch('korisnik.odgovori', function() {
         var questionIds = _.keys($scope.korisnik.odgovori);
-        $scope.results = Results.forQuestions(questionIds);
+        $scope.results = Rezultati.forQuestions(questionIds);
     }, true);
 }	// logKontrol

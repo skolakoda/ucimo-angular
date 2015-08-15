@@ -1,5 +1,5 @@
 angular.module('treehouseCourse')
-  .factory('User', function () {
+  .factory('Korisnik', function () {
     var korisnik = {
       pol: null,
       uzrast: null,
@@ -11,9 +11,9 @@ angular.module('treehouseCourse')
       }
     }
   })
-  .factory('Survey', function () {
+  .factory('Anketa', function () {
     var survey = {
-      "title": "Treehouse Survey",
+      "title": "Treehouse Anketa",
       "pitanja": [
         {
           "id": 1,
@@ -103,7 +103,7 @@ angular.module('treehouseCourse')
       }
     }
   })
-  .factory('Results', function (Survey) {
+  .factory('Rezultati', function (Anketa) {
     var results = {
       1: {
         "JavaScript": 40,
@@ -134,7 +134,7 @@ angular.module('treehouseCourse')
         for (var i = 0, ii = questionIds.length; i < ii; i++) {
           var id = questionIds[i];
           var result = {
-            question: Survey.getQuestion(id),
+            question: Anketa.getQuestion(id),
             results: results[id]
           };
           questionResults.push(result);
