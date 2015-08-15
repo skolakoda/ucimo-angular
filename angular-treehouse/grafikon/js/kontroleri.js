@@ -51,8 +51,8 @@ function anketaKontrol($scope, Korisnik, Anketa) {
 
 function rezultatKontrol($scope, Korisnik, Rezultati) {
     var korisnik = Korisnik.get();
-    var questionIds = _.keys(korisnik.odgovori);
-    $scope.surveyResults = Rezultati.forQuestions(questionIds);
+    var brojeviPitanja = _.keys(korisnik.odgovori);
+    $scope.rezultatiAnkete = Rezultati.zaPitanja(brojeviPitanja);
 }	// rezultatKontrol
 
 
@@ -60,7 +60,7 @@ function logKontrol($scope, Korisnik, Rezultati) {
     $scope.korisnik = Korisnik.get();
 
     $scope.$watch('korisnik.odgovori', function() {
-        var questionIds = _.keys($scope.korisnik.odgovori);
-        $scope.rezultati = Rezultati.forQuestions(questionIds);
+        var brojeviPitanja = _.keys($scope.korisnik.odgovori);
+        $scope.rezultati = Rezultati.zaPitanja(brojeviPitanja);
     }, true);
 }	// logKontrol

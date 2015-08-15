@@ -130,10 +130,10 @@ function Rezultati(Anketa) {
         }
     }
     return {
-        forQuestions: function(questionIds) {
+        zaPitanja: function(brojeviPitanja) {
             var questionResults = [];
-            for (var i = 0, ii = questionIds.length; i < ii; i++) {
-                var id = questionIds[i];
+            for (var i = 0, ii = brojeviPitanja.length; i < ii; i++) {
+                var id = brojeviPitanja[i];
                 var rezultat = {
                     pitanje: Anketa.getQuestion(id),
                     rezultati: rezultati[id]
