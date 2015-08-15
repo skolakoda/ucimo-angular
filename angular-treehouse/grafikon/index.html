@@ -1,10 +1,12 @@
-<html ng-app="treehouseCourse">
+<html>
   <head>
 	<title>Anketa</title>
 	<link rel="stylesheet" href="css/style.css" />
   </head>
-  <body ng-controller="stageSixCtrl">
+  
+  <body ng-app="treehouseCourse" ng-controller="stageSixCtrl">
     <div class="main" ng-switch="step">
+  
       <div ng-switch-when="1" ng-controller="userStepCtrl">
         <form name="demographics" class="fields">
           <label>
@@ -32,6 +34,7 @@
           </button>
         </form>
       </div>
+  
       <div ng-switch-when="2" ng-controller="surveyStepCtrl">
         <h4>{{survey.title}}</h4>
         <p>Awesome, now for a few quick questions:</p>
@@ -50,22 +53,28 @@
           </button>
         </form>
       </div>
+  
       <div ng-switch-when="3" ng-controller="resultsStepCtrl">
         <p>Great, thanks. Here are the results so far:</p>
         <div ng-repeat="result in surveyResults">
-          <div bar-chart="result"></div>
+          <div grafikon="result"></div>
         </div>
       </div>
     </div>
+  
     <div class="debug" ng-controller="debugCtrl">
       <h3>User</h3>
       <pre ng-bind="user | json"></pre>
       <h3>Results</h3>
       <pre ng-bind="results | json"></pre>
     </div>
+  
+  
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
     <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="js/kontroleri.js"></script>
+	<script type="text/javascript" src="js/fabrike.js"></script>
   </body>
 </html>
