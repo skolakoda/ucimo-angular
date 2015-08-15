@@ -2,12 +2,12 @@
   <h3 class="text">
     {{rezultat.pitanje.tekstPitanja}} (Votes: {{total}})
   </h3>
-  <div class="option" ng-repeat="option in rezultat.pitanje.opcije">
+  <div class="option" ng-repeat="opcija in rezultat.pitanje.opcije">
     <p class="text">
-      {{option}}
+      {{opcija}}
     </p>
-    <span class="bar" ng-style="{width: (100 * rezultat.rezultati[option]/total) + '%', 'background-color': optionColors[option]}">
-      {{rezultat.rezultati[option]}} Votes
+    <span class="bar" ng-style="{width: (100 * rezultat.rezultati[opcija]/total) + '%', 'background-color': optionColors[opcija]}">
+      {{rezultat.rezultati[opcija]}} Votes
     </span>
   </div>
 </div>

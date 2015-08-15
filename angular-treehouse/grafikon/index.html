@@ -43,9 +43,9 @@
             <p class="text">
               {{pitanje.tekstPitanja}}
             </p>
-            <label ng-repeat="option in pitanje.opcije">
-              <input type="radio" ng-model="korisnik.odgovori[pitanje.id]" ng-value="option">
-              {{option}}
+            <label ng-repeat="opcija in pitanje.opcije">
+              <input type="radio" ng-model="korisnik.odgovori[pitanje.id]" ng-value="opcija">
+              {{opcija}}
             </label>
           </div>
           <button ng-click="advance()" ng-disabled="surveyQuestions.$invalid">
