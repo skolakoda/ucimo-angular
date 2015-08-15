@@ -1,15 +1,24 @@
 angular.module('treehouseCourse')
-  .controller('korakKontrol', function ($scope) {
+	.controller('korakKontrol', korakKontrol)
+	.controller('korisnikKontrol', korisnikKontrol)
+	.controller('anketaKontrol', anketaKontrol)
+	.controller('rezultatKontrol', rezultatKontrol)
+	.controller('logKontrol', logKontrol)
+
+
+function korakKontrol($scope) {
     $scope.step = 1;
 
     $scope.advance = function () {
       $scope.step++;
     }
-  })
-  .controller('korisnikKontrol', function ($scope, User) {
+  }
+  
+function korisnikKontrol($scope, User) {
     $scope.user = User.get();
-  })
-  .controller('anketaKontrol', function ($scope, User, Survey) {
+}
+  
+function anketaKontrol($scope, User, Survey) {
     $scope.user = User.get();
     $scope.survey = Survey.get();
 
@@ -35,17 +44,20 @@ angular.module('treehouseCourse')
       }
       return filtered;
     }
-  })
-  .controller('rezultatKontrol', function ($scope, User, Results) {
+  }
+  
+function rezultatKontrol($scope, User, Results) {
     var user = User.get();
     var questionIds = _.keys(user.surveyAnswers);
     $scope.surveyResults = Results.forQuestions(questionIds);
-  })
-  .controller('logKontrol', function ($scope, User, Results) {
+  }
+  
+function logKontrol($scope, User, Results) {
     $scope.user = User.get();
 
     $scope.$watch('user.surveyAnswers', function () {
       var questionIds = _.keys($scope.user.surveyAnswers);
       $scope.results = Results.forQuestions(questionIds);
     }, true);
-  })
+  }
+  
