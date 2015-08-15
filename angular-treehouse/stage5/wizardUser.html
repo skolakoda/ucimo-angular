@@ -1,0 +1,79 @@
+<html ng-app="treehouseCourse">
+  <head>
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <style type="text/css">
+      .main, .debug {
+        width: 48%;
+      }
+
+      .main {
+        float: left;
+      }
+
+      .debug {
+        float: right;
+      }
+
+      .fields label {
+        display: block;
+        margin-bottom: 1.5em;
+        font-weight: bold;
+      }
+
+      .fields label input, .fields label select {
+        font-weight: normal;
+        margin-left: 1em;
+      }
+
+      .fields .ng-invalid {
+        background: red;
+        color: white;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body ng-controller="stageFiveCtrl">
+    <div class="main" ng-switch="step">
+      <div ng-switch-when="1" ng-controller="surveyCtrlOne">
+        <form name="basics" class="fields">
+          <label>
+            Username:
+            <input type="text" unique-check ng-model="user.username" />
+          </label>
+          <label>
+            Password:
+            <input type="password" ng-model="user.password" />
+          </label>
+          <button ng-click="advance()" ng-disabled="basics.$invalid">
+            Next step
+          </button>
+        </form>
+      </div>
+      <div ng-switch-when="2" ng-controller="surveyCtrlTwo">
+        <p>Hello {{user.username}}</p>
+        <form class="fields">
+          <label>
+            Email:
+            <input type="email" ng-model="user.email" />
+          </label>
+          <label>
+            Favorite programming language:
+            <select ng-model="user.favorite">
+              <option value="javascript">JavaScript</option>
+              <option value="ruby">Ruby</option>
+              <option value="go">Go</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+        </form>
+      </div>
+    </div>
+    <div class="debug" ng-controller="DebugCtrl">
+      <pre ng-bind="user | json">
+      </pre>
+    </div>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script type="text/javascript" src="appWizardUser.js"></script>
+  </body>
+</html>

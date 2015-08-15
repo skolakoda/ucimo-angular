@@ -1,0 +1,13 @@
+<div class="bar-chart">
+  <h3 class="text">
+    {{result.question.questionText}} (Votes: {{total}})
+  </h3>
+  <div class="option" ng-repeat="option in result.question.options">
+    <p class="text">
+      {{option}}
+    </p>
+    <span class="bar" ng-style="{width: (100 * result.results[option]/total) + '%', 'background-color': optionColors[option]}">
+      {{result.results[option]}} Votes
+    </span>
+  </div>
+</div>

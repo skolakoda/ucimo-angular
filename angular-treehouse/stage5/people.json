@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Alex",
+    "profession": "Programmer",
+    "hometown": "St Louis, MO"
+  },
+  {
+    "id": 2,
+    "name": "David",
+    "profession": "Salesman",
+    "hometown": "Denver, CO"
+  },
+  {
+    "id": 3,
+    "name": "Laura",
+    "profession": "CEO",
+    "hometown": "San Francisco, CA"
+  }
+]

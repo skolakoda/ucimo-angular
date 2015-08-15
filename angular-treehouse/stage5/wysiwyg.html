@@ -1,0 +1,53 @@
+<html ng-app="treehouseCourse">
+  <head>
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome.css">
+    <style type="text/css">
+      .main, .debug {
+        width: 48%;
+      }
+
+      .main {
+        float: left;
+      }
+
+      .debug {
+        float: right;
+      }
+
+      .fields label {
+        display: block;
+        margin-bottom: 1.5em;
+        font-weight: bold;
+      }
+
+      .fields label input, .fields label select {
+        font-weight: normal;
+        margin-left: 1em;
+      }
+
+      .textarea {
+        width: 100%;
+        min-height: 250px;
+      }
+    </style>
+  </head>
+  <body ng-controller="stageFiveCtrl">
+    <div class="main">
+      <div class="textarea" ng-model="user.bio" hallo></div>
+    </div>
+    <div class="debug">
+      <pre ng-bind="user | json">
+      </pre>
+    </div>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script type="text/javascript" src="//rangy.googlecode.com/svn/trunk/currentrelease/rangy-core.js"></script>
+    <script type="text/javascript" src="hallo.js"></script>
+    <script type="text/javascript" src="showdown.js"></script>
+    <script type="text/javascript" src="he.js"></script>
+    <script type="text/javascript" src="to-markdown.js"></script>
+    <script type="text/javascript" src="appWysiwyg.js"></script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<html ng-app="treehouseCourse">
+  <head>
+    <style type="text/css">
+      .main, .debug {
+        width: 48%;
+      }
+
+      .main {
+        float: left;
+      }
+
+      .debug {
+        float: right;
+      }
+
+      #people li {
+        display: block;
+        margin-bottom: 1.5em;
+      }
+
+      #people li .name {
+        font-weight: bold;
+        margin-right: 1em;
+      }
+
+      #people li .profession {
+        margin-right: 1em;
+      }
+
+      #people li .hometown {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body ng-controller="stageThreeCtrl">
+    <div class="main">
+      <ul id="people">
+        <li ng-repeat="person in people" ng-class="person.profession">
+          <input type="text" ng-model="person.name" class="name" />
+          <input type="text" ng-model="person.profession" class="profession" />
+          <input type="text" ng-model="person.hometown" class="hometown" />
+          <button ng-click="">Save</button>
+        </li>
+      </ul>
+    </div>
+    <div class="debug">
+      <pre ng-bind="people | json">
+      </pre>
+    </div>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<html ng-app="treehouseCourse">
+  <head>
+    <style type="text/css">
+      .main, .debug {
+        width: 48%;
+      }
+
+      .main {
+        float: left;
+      }
+
+      .debug {
+        float: right;
+      }
+
+      #people li {
+        display: block;
+        margin-bottom: 1.5em;
+      }
+
+      #people li .name {
+        font-weight: bold;
+        margin-right: 1em;
+      }
+
+      #people li .profession {
+        margin-right: 1em;
+      }
+
+      #people li .hometown {
+        font-style: italic;
+      }
+
+      .fields label {
+        display: block;
+        margin-bottom: 1.5em;
+        font-weight: bold;
+      }
+
+      .fields label input, .fields label select {
+        font-weight: normal;
+        margin-left: 1em;
+      }
+    </style>
+  </head>
+  <body ng-controller="stageThreeCtrl">
+    <div class="main">
+      <ul id="people">
+        <li ng-repeat="person in people" ng-class="person.profession">
+          <input type="text" ng-model="person.name" class="name" />
+          <input type="text" ng-model="person.profession" class="profession" />
+          <input type="text" ng-model="person.hometown" class="hometown" />
+          <button ng-click="save(person)">Save</button>
+          <button ng-click="remove(person)">X</button>
+        </li>
+      </ul>
+      <div class="newPerson fields">
+        <h3>Add Person</h3>
+        <label>
+          Name
+          <input type="text" ng-model="newPerson.name" />
+        </label>
+        <label>
+          Profession
+          <input type="text" ng-model="newPerson.profession" />
+        </label>
+        <label>
+          Hometown
+          <input type="text" ng-model="newPerson.hometown" />
+        </label>
+        <button ng-click="add(newPerson)">
+          Add
+        </button>
+      </div>
+    </div>
+    <div class="debug">
+      <pre ng-bind="people | json">
+      </pre>
+    </div>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script type="text/javascript" src="appExternal.js"></script>
+  </body>
+</html>

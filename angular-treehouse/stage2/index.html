@@ -1,0 +1,56 @@
+<html ng-app="treehouseCourse">
+  <head>
+    <style type="text/css">
+      .main, .debug {
+        width: 48%;
+      }
+
+      .main {
+        float: left;
+      }
+
+      .debug {
+        float: right;
+      }
+
+      .fields label {
+        display: block;
+        margin-bottom: 1.5em;
+        font-weight: bold;
+      }
+
+      .fields label input, .fields label select {
+        font-weight: normal;
+        margin-left: 1em;
+      }
+    </style>
+  </head>
+  <body ng-controller="stageTwoCtrl">
+    <div class="main">
+      <div class="greeting">
+        <h3>Hello {{user.name}}</h3>
+      </div>
+      <div class="fields">
+        <label>
+          Your Name
+          <input type="text" ng-model="user.name" />
+        </label>
+        <label>
+          Select name
+          <select ng-model="user.name">
+            <option value="Alex">Alex</option>
+            <option value="David">David</option>
+            <option value="Laura">Laura</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="debug">
+      <pre ng-bind="user | json">
+      </pre>
+    </div>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

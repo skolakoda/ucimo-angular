@@ -1,0 +1,79 @@
+{
+  "title": "Treehouse Survey",
+  "questions": [
+    {
+      "id": 1,
+      "conditional": false,
+      "questionText": "What is your favorite language?",
+      "options": [
+        "JavaScript",
+        "Ruby",
+        "Go",
+        "Other"
+      ]
+    },
+    {
+      "id": 2,
+      "conditional": false,
+      "questionText": "Do you prefer cats or dogs",
+      "options": [
+        "Cats",
+        "Dogs",
+        "Both are awesome",
+        "Can't stand either"
+      ]
+    },
+    {
+      "id": 3,
+      "conditional": "user.ageRange == '<10'",
+      "questionText": "What was your favorite part of the 2000's",
+      "options": [
+        "The internet",
+        "Smartphones",
+        "Rick Rolling"
+      ]
+    },
+    {
+      "id": 4,
+      "conditional": "user.ageRange == '20-29'",
+      "questionText": "What was your favorite part of the 90's",
+      "options": [
+        "The hair",
+        "The music",
+        "Y2K"
+      ]
+    },
+    {
+      "id": 5,
+      "conditional": "user.ageRange == '30-39'",
+      "questionText": "What was your favorite part of the 80's",
+      "options": [
+        "The hair",
+        "The music",
+        "Y2K"
+      ]
+    },
+    {
+      "id": 6,
+      "conditional": "user.ageRange == '40-49'",
+      "questionText": "What was your favorite part of the 70's",
+      "options": [
+        "The hair",
+        "The music",
+        "Y2K"
+      ]
+    },
+    {
+      "id": 7,
+      "conditional": "user.ageRange == '50+'",
+      "questionText": "What was your favorite decade so far?",
+      "options": [
+        "The 60's",
+        "The 70's",
+        "The 80's",
+        "The 90's",
+        "The 00's"
+      ]
+    }
+  ]
+}

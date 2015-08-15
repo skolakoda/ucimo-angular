@@ -1,0 +1,68 @@
+<html ng-app="treehouseCourse">
+  <head>
+    <style type="text/css">
+      .main, .debug {
+        width: 48%;
+      }
+
+      .main {
+        float: left;
+      }
+
+      .debug {
+        float: right;
+      }
+
+      .fields label {
+        display: block;
+        margin-bottom: 1.5em;
+        font-weight: bold;
+      }
+
+      .fields label input, .fields label select {
+        font-weight: normal;
+        margin-left: 1em;
+      }
+    </style>
+  </head>
+  <body ng-controller="stageTwoCtrl">
+    <div class="main">
+      <div class="greeting">
+        <h3>Hello {{user.name}}</h3>
+      </div>
+      <div class="fields">
+        <label>
+          Your Name
+          <input type="text" ng-model="user.name" />
+        </label>
+        <label>
+          Your Age
+          <input type="number" ng-model="user.age" />
+        </label>
+        <label>
+          Your Email
+          <input type="email" ng-model="user.email" />
+        </label>
+        <label>
+          Active?
+          <input type="checkbox" ng-model="user.active" />
+        </label>
+        <label>
+          Your Role
+          <select ng-model="user.role">
+            <option value="visitor">Visitor</option>
+            <option value="member">Member</option>
+            <option value="admin">Admin</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="debug">
+      <pre ng-bind="user | json">
+      </pre>
+    </div>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

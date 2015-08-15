@@ -1,0 +1,63 @@
+<html ng-app="treehouseCourse">
+  <head>
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <style type="text/css">
+      .main, .debug {
+        width: 48%;
+      }
+
+      .main {
+        float: left;
+      }
+
+      .debug {
+        float: right;
+      }
+
+      .contact-card, .receipt .line-item {
+        display: block;
+        margin-bottom: 1.5em;
+      }
+
+      .contact-card .name, .receipt .line-item .item {
+        font-weight: bold;
+        margin-right: 1em;
+      }
+
+      .contact-card .profession {
+        margin-right: 1em;
+      }
+
+      .contact-card .hometown {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body ng-controller="stageFiveCtrl">
+    <div class="main">
+      <div class="my-picker">
+        <h3>Date Picker</h3>
+        <label>
+          Date: {{course.date}}
+          <div datepicker datepicker-format="mm-dd-yy" ng-model="course.date"></div>
+        </label>
+      </div>
+      <div class="other-picker">
+        <h4>Select a date:</h4>
+        <select ng-model="course.date">
+          <option value="01-01-2014">01-01-2014</option>
+          <option value="10-31-2014">10-31-2014</option>
+          <option value="12-31-2014">12-31-2014</option>
+        </select>
+      </div>
+    </div>
+    <div class="debug">
+      <pre ng-bind="course | json">
+      </pre>
+    </div>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

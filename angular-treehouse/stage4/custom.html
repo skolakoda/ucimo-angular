@@ -1,0 +1,61 @@
+<html ng-app="treehouseCourse">
+  <head>
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <style type="text/css">
+      .main, .debug {
+        width: 48%;
+      }
+
+      .main {
+        float: left;
+      }
+
+      .debug {
+        float: right;
+      }
+
+      .contact-card, .receipt .line-item {
+        display: block;
+        margin-bottom: 1.5em;
+      }
+
+      .contact-card .name, .receipt .line-item .item {
+        font-weight: bold;
+        margin-right: 1em;
+      }
+
+      .contact-card .profession {
+        margin-right: 1em;
+      }
+
+      .contact-card .hometown {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body ng-controller="stageFourCtrl">
+    <div class="main">
+      <div class="receipt">
+        <h3>Receipt</h3>
+        <label>
+          Date:
+          <input datepicker />
+        </label>
+        <p class="line-item" ng-repeat="(food, cost) in receipt">
+          <span class="item">{{food}}</span>
+          <span class="cost">${{cost}}</span>
+        </p>
+      </div>
+    </div>
+    <div class="debug">
+      <pre ng-bind="people | json">
+      </pre>
+      <pre ng-bind="receipt | json">
+      </pre>
+    </div>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script type="text/javascript" src="appCustom.js"></script>
+  </body>
+</html>
