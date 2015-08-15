@@ -5,7 +5,7 @@
   </head>
   
   <body ng-app="treehouseCourse" ng-controller="korakKontrol">
-    <div class="main" ng-switch="step">
+    <div class="main" ng-switch="korak">
   
       <div ng-switch-when="1" ng-controller="korisnikKontrol">
         <form name="demographics" class="fields">
@@ -30,7 +30,7 @@
             </select>
           </label>
           <button ng-click="advance()" ng-disabled="demographics.$invalid">
-            Next step
+            Next korak
           </button>
         </form>
       </div>

@@ -7,10 +7,10 @@ angular.module('treehouseCourse')
 
 
 function korakKontrol($scope) {
-    $scope.step = 1;
+    $scope.korak = 1;
 
     $scope.advance = function() {
-        $scope.step++;
+        $scope.korak++;
     }
 }	// korakKontrol
 
