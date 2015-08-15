@@ -1,0 +1,80 @@
+<html>
+  <head>
+	<title>Anketa i grafikon</title>
+	<link rel="stylesheet" href="css/style.css" />
+  </head>
+  
+  <body ng-app="anketaModul" ng-controller="korakKontrol">
+    <div class="main" ng-switch="korak">
+  
+      <div ng-switch-when="1" ng-controller="korisnikKontrol">
+        <form name="demographics" class="fields">
+          <label>
+            Pol:
+            <select ng-model="korisnik.pol">
+              <option>-- izaberi pol --</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </label>
+          <label>
+            Uzrast:
+            <select ng-model="korisnik.uzrast">
+              <option>-- izaberi uzrast --</option>
+              <option value="<10">&lt;10</option>
+              <option value="10-19">10-19</option>
+              <option value="20-29">20-29</option>
+              <option value="30-39">30-39</option>
+              <option value="40-49">40-49</option>
+              <option value="50+">50+</option>
+            </select>
+          </label>
+          <button ng-click="advance()" ng-disabled="demographics.$invalid">
+            Naredni korak
+          </button>
+        </form>
+      </div>
+  
+      <div ng-switch-when="2" ng-controller="anketaKontrol">
+        <h4>{{anketa.naslov}}</h4>
+        <p>Awesome, now for a few quick pitanja:</p>
+        <form name="surveyQuestions" class="fields">
+          <div class="pitanje" ng-repeat="pitanje in pitanjaKorisniku">
+            <p class="text">
+              {{pitanje.tekstPitanja}}
+            </p>
+            <label ng-repeat="opcija in pitanje.opcije">
+              <input type="radio" ng-model="korisnik.odgovori[pitanje.id]" ng-value="opcija">
+              {{opcija}}
+            </label>
+          </div>
+          <button ng-click="advance()" ng-disabled="surveyQuestions.$invalid">
+            Submit
+          </button>
+        </form>
+      </div>
+  
+      <div ng-switch-when="3" ng-controller="rezultatKontrol">
+        <p>Great, thanks. Here are the rezultati so far:</p>
+        <div ng-repeat="rezultat in rezultatiAnkete">
+          <div grafikon="rezultat"></div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="debug" ng-controller="logKontrol">
+      <h3>Korisnik</h3>
+      <pre ng-bind="korisnik | json"></pre>
+      <h3>Rezultati</h3>
+      <pre ng-bind="rezultati | json"></pre>
+    </div>
+  
+  
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="js/kontroleri.js"></script>
+	<script type="text/javascript" src="js/fabrike.js"></script>
+  </body>
+</html>
