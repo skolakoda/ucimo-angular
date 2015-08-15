@@ -1,15 +1,15 @@
 angular.module('treehouseCourse')
-  .controller('stageSixCtrl', function ($scope) {
+  .controller('korakKontrol', function ($scope) {
     $scope.step = 1;
 
     $scope.advance = function () {
       $scope.step++;
     }
   })
-  .controller('userStepCtrl', function ($scope, User) {
+  .controller('korisnikKontrol', function ($scope, User) {
     $scope.user = User.get();
   })
-  .controller('surveyStepCtrl', function ($scope, User, Survey) {
+  .controller('anketaKontrol', function ($scope, User, Survey) {
     $scope.user = User.get();
     $scope.survey = Survey.get();
 
@@ -36,12 +36,12 @@ angular.module('treehouseCourse')
       return filtered;
     }
   })
-  .controller('resultsStepCtrl', function ($scope, User, Results) {
+  .controller('rezultatKontrol', function ($scope, User, Results) {
     var user = User.get();
     var questionIds = _.keys(user.surveyAnswers);
     $scope.surveyResults = Results.forQuestions(questionIds);
   })
-  .controller('debugCtrl', function ($scope, User, Results) {
+  .controller('logKontrol', function ($scope, User, Results) {
     $scope.user = User.get();
 
     $scope.$watch('user.surveyAnswers', function () {

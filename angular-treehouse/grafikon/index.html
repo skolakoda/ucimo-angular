@@ -4,10 +4,10 @@
 	<link rel="stylesheet" href="css/style.css" />
   </head>
   
-  <body ng-app="treehouseCourse" ng-controller="stageSixCtrl">
+  <body ng-app="treehouseCourse" ng-controller="korakKontrol">
     <div class="main" ng-switch="step">
   
-      <div ng-switch-when="1" ng-controller="userStepCtrl">
+      <div ng-switch-when="1" ng-controller="korisnikKontrol">
         <form name="demographics" class="fields">
           <label>
             Gender:
@@ -35,7 +35,7 @@
         </form>
       </div>
   
-      <div ng-switch-when="2" ng-controller="surveyStepCtrl">
+      <div ng-switch-when="2" ng-controller="anketaKontrol">
         <h4>{{survey.title}}</h4>
         <p>Awesome, now for a few quick questions:</p>
         <form name="surveyQuestions" class="fields">
@@ -54,7 +54,7 @@
         </form>
       </div>
   
-      <div ng-switch-when="3" ng-controller="resultsStepCtrl">
+      <div ng-switch-when="3" ng-controller="rezultatKontrol">
         <p>Great, thanks. Here are the results so far:</p>
         <div ng-repeat="result in surveyResults">
           <div grafikon="result"></div>
@@ -62,7 +62,7 @@
       </div>
     </div>
   
-    <div class="debug" ng-controller="debugCtrl">
+    <div class="debug" ng-controller="logKontrol">
       <h3>User</h3>
       <pre ng-bind="user | json"></pre>
       <h3>Results</h3>
