@@ -1,29 +1,22 @@
 <?php
 
-$errors         = array();  	// array to hold validation errors
-$data 			= array(); 		// array to pass back data
+$errors = "";
+$data = array();
 
-// validate the variables ======================================================
-	if (empty($_POST['name']))
-		$errors['name'] = 'Name is required.';
+// validate the variables
+if (empty($_POST['ime']))
+	$errors .= 'Ime is required. ';
 
-	if (empty($_POST['superheroAlias']))
-		$errors['superheroAlias'] = 'Superhero alias is required.';
+if (empty($_POST['nadimak']))
+	$errors .= 'Nadimak is required. ';
 
-// return a response ===========================================================
+// return a response
+if ($errors != '') {
+	$data['uspeh'] = false;
+	$data['errors']  = $errors;
+} else {
+	$data['uspeh'] = true;
+	$data['obavestenje'] = 'Podaci su uspešno poslati!';
+}
 
-	// response if there are errors
-	if ( ! empty($errors)) {
-
-		// if there are items in our errors array, return those errors
-		$data['success'] = false;
-		$data['errors']  = $errors;
-	} else {
-
-		// if there are no errors, return a message
-		$data['success'] = true;
-		$data['message'] = 'Success!';
-	}
-
-	// return all our data to an AJAX call
-	echo json_encode($data);
+echo json_encode($data);

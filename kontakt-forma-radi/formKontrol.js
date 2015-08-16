@@ -18,13 +18,11 @@ function formKontrol($scope, $http, $httpParamSerializerJQLike) {
             .success(function(data) {
                 console.log(data);
 
-                if (!data.success) {
-                    $scope.errorName = data.errors.name;
-                    $scope.errorSuperhero = data.errors.superheroAlias;
+                if (!data.uspeh) {
+                    $scope.greska = data.errors;
                 } else {
-                    $scope.message = data.message;
-                    $scope.errorName = '';
-                    $scope.errorSuperhero = '';
+                    $scope.obavestenje = data.obavestenje;
+                    $scope.greska = '';
                 }
             });
 

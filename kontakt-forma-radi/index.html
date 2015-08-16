@@ -23,28 +23,26 @@
                 <h1><span class="glyphicon glyphicon-envelope"></span> Kontakt</h1>
             </div>
 
-            <div id="messages" class="well" ng-show="message">{{ message }}</div>
+            <div ng-show="obavestenje" class="well">{{ obavestenje }}</div>
 
             <form ng-submit="processForm()">
 
-                <div id="name-group" class="form-group" ng-class="{ 'has-error' : errorName }">
+                <div class="form-group"">
                     <label>Ime</label>
-                    <input type="text" name="name" class="form-control" placeholder="Bruce Wayne" ng-model="forma.podaci.name">
-                    <span class="help-block" ng-show="errorName">{{ errorName }}</span>
+                    <input type="text" name="ime" class="form-control" placeholder="Bruce Wayne" ng-model="forma.podaci.ime">
                 </div>
 
-                <div id="superhero-group" class="form-group" ng-class="{ 'has-error' : errorSuperhero }">
+                <div class="form-group">
                     <label>Umetničko ime</label>
-                    <input type="text" name="superheroAlias" class="form-control" placeholder="Caped Crusader" ng-model="forma.podaci.superheroAlias">
-                    <span class="help-block" ng-show="errorSuperhero">{{ errorSuperhero }}</span>
+                    <input type="text" name="nadimak" class="form-control" placeholder="Caped Crusader" ng-model="forma.podaci.nadimak">
                 </div>
 
                 <button type="submit" class="btn btn-success btn-lg btn-block">
                     <span class="glyphicon glyphicon-send"></span> Pošalji!
                 </button>
             </form>
-
-			<pre>{{ forma.podaci }}</pre>
+            
+			<span class="help-block" ng-show="greska">{{ greska }}</span>
 
         </div>
     </div>
