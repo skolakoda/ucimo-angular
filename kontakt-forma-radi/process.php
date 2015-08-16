@@ -1,19 +1,19 @@
 <?php
 
-$errors = "";
+$greska = "";
 $data = array();
 
 // validate the variables
 if (empty($_POST['ime']))
-	$errors .= 'Ime is required. ';
+	$greska .= 'Ime is required. ';
 
 if (empty($_POST['nadimak']))
-	$errors .= 'Nadimak is required. ';
+	$greska .= 'Nadimak is required. ';
 
 // return a response
-if ($errors != '') {
+if ($greska != '') {
 	$data['uspeh'] = false;
-	$data['errors']  = $errors;
+	$data['greska']  = $greska;
 } else {
 	$data['uspeh'] = true;
 	$data['obavestenje'] = 'Podaci su uspešno poslati!';

@@ -15,13 +15,13 @@ function formKontrol($scope, $http, $httpParamSerializerJQLike) {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 } 
             })
-            .success(function(data) {
-                console.log(data);
+            .then(function(odgovor) {
+                console.log(odgovor.data);
 
-                if (!data.uspeh) {
-                    $scope.greska = data.errors;
+                if (!odgovor.data.uspeh) {
+                    $scope.greska = odgovor.data.greska;
                 } else {
-                    $scope.obavestenje = data.obavestenje;
+                    $scope.obavestenje = odgovor.data.obavestenje;
                     $scope.greska = '';
                 }
             });
