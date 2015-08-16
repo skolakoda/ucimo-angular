@@ -2,11 +2,11 @@ angular.module('formApp', [])
 	.controller('formKontrol', formKontrol)
 
 
-function formKontrol($scope, $http, $httpParamSerializerJQLike) {
+function formKontrol($http, $httpParamSerializerJQLike) {
 	var forma = this;
     forma.podaci = {};
 
-    $scope.processForm = function() {
+    forma.obradi = function() {
         $http({
                 method: 'POST',
                 url: 'process.php',
@@ -19,13 +19,13 @@ function formKontrol($scope, $http, $httpParamSerializerJQLike) {
                 console.log(odgovor.data);
 
                 if (!odgovor.data.uspeh) {
-                    $scope.greska = odgovor.data.greska;
+                    forma.greska = odgovor.data.greska;
                 } else {
-                    $scope.obavestenje = odgovor.data.obavestenje;
-                    $scope.greska = '';
+                    forma.obavestenje = odgovor.data.obavestenje;
+                    forma.greska = '';
                 }
             });
 
-    }; // processForm
+    }; // obradi
 
 } // formKontrol

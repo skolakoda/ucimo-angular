@@ -23,9 +23,9 @@
                 <h1><span class="glyphicon glyphicon-envelope"></span> Kontakt</h1>
             </div>
 
-            <div ng-show="obavestenje" class="well">{{ obavestenje }}</div>
+            <div ng-show="forma.obavestenje" class="well">{{ forma.obavestenje }}</div>
 
-            <form ng-submit="processForm()">
+            <form ng-submit="forma.obradi()">
 
                 <div class="form-group"">
                     <label>Ime</label>
@@ -42,7 +42,7 @@
                 </button>
             </form>
             
-			<span class="help-block" ng-show="greska">{{ greska }}</span>
+			<span class="help-block" ng-show="forma.greska">{{ forma.greska }}</span>
 
         </div>
     </div>
