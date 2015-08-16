@@ -16,7 +16,7 @@ function formKontrol($http, $httpParamSerializerJQLike) {
                 } 
             })
             .then(function(odgovor) {
-                console.log(odgovor.data);
+				console.log(odgovor.data);
 
                 if (!odgovor.data.uspeh) {
                     forma.greska = odgovor.data.greska;
@@ -26,6 +26,6 @@ function formKontrol($http, $httpParamSerializerJQLike) {
                 }
             });
 
-    }; // obradi
+    }; // obradi()
 
 } // formKontrol
