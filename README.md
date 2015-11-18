@@ -1,4 +1,7 @@
 # ucimo_angular
-Uchimo AngularJS
+Učimo AngularJS
 
 ...primeri su uglavnom pokupljeni sa svih strana...
+
+---
+Škola koda, učimo narod programiranju!
