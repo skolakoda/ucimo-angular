@@ -1,6 +1,6 @@
 angular
     .module('multiFilter', [])
-    .controller('FilmoviKontrol', FilmoviKontrol)
+    .controller('FilmoviKontrol', FilmoviKontrol);
 
 
 function FilmoviKontrol($scope){
@@ -14,5 +14,3 @@ function FilmoviKontrol($scope){
     ];
 
 }   // FilmoviKontrol
-
-
