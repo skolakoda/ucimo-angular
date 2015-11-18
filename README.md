@@ -1,5 +1,4 @@
-# ucimo_angular
-Učimo AngularJS
+# Učimo AngularJS
 
 ...primeri su uglavnom pokupljeni sa svih strana...
 
