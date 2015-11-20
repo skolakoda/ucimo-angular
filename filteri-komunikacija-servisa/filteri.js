@@ -3,12 +3,12 @@ angular.module('someApp')
 
 
 function proveriGrupu() {
-    return function(input, kvacice) {
+    return function(input, parametri) {
         var probrano =[];
         for (var i in input){
             var match = false;
-            for (var j in kvacice){
-                if (kvacice[j].izabrano && kvacice[j].grupa == input[i].grupa){
+            for (var j in parametri){
+                if (parametri[j].izabrano && parametri[j].grupa == input[i].grupa){
                    probrano.push(input[i]);   
                 }
             }

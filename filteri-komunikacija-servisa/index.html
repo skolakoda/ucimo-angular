@@ -6,27 +6,26 @@
 
 <body ng-app="someApp">
 
-    <div ng-controller="KvaciceKontrol as kvacice">
-        <input placeholder="Trazi" ng-model="kvacice.kriteriji.upit"/>        
-        <label ng-repeat="kvacica in kvacice.spisak">
-            <input type="checkbox" ng-model="kvacica.izabrano"/> {{kvacica.ime}}
+    <div ng-controller="ParamKontrol as parametri">
+        <input placeholder="Trazi" ng-model="parametri.kriteriji.upit"/>
+        <label ng-repeat="parametar in parametri.spisak">
+            <input type="checkbox" ng-model="parametar.izabrano"/> {{parametar.ime}}
         </label>
     </div>
     <hr />
-        
+
     <div ng-controller="ListaKontrol as lista">
         Rezultati za: {{ lista.kriteriji.upit }}
         <ul>
-            <li ng-repeat="predmet in lista.spisak | filter: lista.kriteriji.upit | proveriGrupu : lista.kvacice">
+            <li ng-repeat="predmet in lista.spisak | filter: lista.kriteriji.upit | proveriGrupu : lista.parametri">
                 {{predmet.ime}}
             </li>
         </ul>
     </div>
-	
+
 	<script src="https://code.angularjs.org/1.2.16/angular.min.js"></script>
     <script src="app.js"></script>
     <script src="filteri.js"></script>
-    <script src="fabrike.js"></script>
-    <script src="kontroleri.js"></script>
+    <script src="servisi.js"></script>
 </body>
 </html>
