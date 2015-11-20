@@ -22,14 +22,15 @@ function DetailCtrl($scope, usersService) {
 }   // DetailCtrl
 
 
+// izgleda da nicemu ne sluzi
 function usersService() {
-	var user;
-	return {
-		setCurrentUser: function (current) {
-			user = current;
-		},
-		getCurrentUser: function () {
-			return user;
-		}
-	};
+	// var user;
+	// return {
+	// 	setCurrentUser: function (current) {
+	// 		user = current;
+	// 	},
+	// 	getCurrentUser: function () {
+	// 		return user;
+	// 	}
+	// };
 }   // usersService
