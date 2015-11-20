@@ -9,10 +9,6 @@ angular.module("App", [])
 function HoteliKontrol() {
 	var hoteli = this;
 
-    hoteli.kriteriji = {
-		slobodan: true
-    };
-
     hoteli.spisak = [
         {
             ime: 'skup hotel',
