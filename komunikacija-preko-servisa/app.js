@@ -1,6 +1,6 @@
 angular.module('someApp', [])
 	.controller('ParamKontrol', ['parametriServis', 'pretragaServis', ParamKontrol])
-	.controller('ListaKontrol', ['$scope', 'parametriServis', 'listaServis', 'pretragaServis', ListaKontrol]);
+	.controller('ListaKontrol', ['parametriServis', 'listaServis', 'pretragaServis', ListaKontrol]);
 
 
 function ParamKontrol(parametriServis, pretragaServis) {
@@ -9,7 +9,7 @@ function ParamKontrol(parametriServis, pretragaServis) {
 	parametri.kriteriji = pretragaServis;
 } // ParamKontrol
 
-function ListaKontrol($scope, parametriServis, listaServis, pretragaServis) {
+function ListaKontrol(parametriServis, listaServis, pretragaServis) {
 	var lista = this;
 	lista.parametri = parametriServis;
 	lista.spisak = listaServis;

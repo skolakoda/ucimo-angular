@@ -1,18 +1,18 @@
 angular.module('someApp')
 	.factory('parametriServis', parametriServis)
 	.factory('listaServis', listaServis)
-	.factory('pretragaServis', pretragaServis)
+	.factory('pretragaServis', pretragaServis);
 
 
 function pretragaServis() {
 	return {
 		upit: ""
-	}
+	};
 } // pretragaServis
 
 
 function parametriServis() {
-	var parametriServis = [
+	return [
 		{
 			ime: 'grupa 1',
 			grupa: 1
@@ -26,12 +26,11 @@ function parametriServis() {
 			grupa: 3
 		}
     ];
-	return parametriServis;
 } // parametriServis
 
 
 function listaServis() {
-	var listaServis = [
+	return [
 		{
 			ime: 'predmet 01',
 			grupa: 1
@@ -73,5 +72,4 @@ function listaServis() {
 			grupa: 1
 		}
     ];
-	return listaServis;
 } // listaServis

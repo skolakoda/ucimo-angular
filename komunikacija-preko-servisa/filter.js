@@ -1,5 +1,5 @@
 angular.module('someApp')
-	.filter('proveriGrupu', proveriGrupu)
+	.filter('proveriGrupu', proveriGrupu);
 
 
 function proveriGrupu() {
@@ -9,7 +9,7 @@ function proveriGrupu() {
             var match = false;
             for (var j in parametri){
                 if (parametri[j].izabrano && parametri[j].grupa == input[i].grupa){
-                   probrano.push(input[i]);   
+                   probrano.push(input[i]);
                 }
             }
         }
