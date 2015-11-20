@@ -11,6 +11,7 @@ function ListCtrl($scope, $rootScope, $http) {
             $scope.users = users;
         });
 
+    // reaguje na mouseenter i šalje novi događaj
     $scope.selectUser = function(user) {
         $rootScope.$broadcast('userChanged', user);
     };
@@ -20,6 +21,7 @@ function ListCtrl($scope, $rootScope, $http) {
 
 function DetailCtrl($scope) {
 
+    // osluškuje događaj i pokreće akciju
     $scope.$on('userChanged', function(event, user) {
         $scope.currentUser = user;
     });
