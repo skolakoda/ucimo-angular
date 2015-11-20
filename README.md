@@ -1,8 +1,8 @@
 # Učimo AngularJS
 
-[AngularJS](https://angularjs.org/) je superherojski Javaskript radni okvir.
+[AngularJS](https://angularjs.org/) je superherojski javaskript radni okvir.
 
-Primeri su prikupljeni sa raznih strana.
+Primeri za učenje su prikupljeni sa raznih strana.
 
 ## Instalacija
 
