@@ -2,7 +2,7 @@
 
 [AngularJS](https://angularjs.org/) je superherojski radni okvir, koji Javaskript developeru omogućava super moći.
 
-Primeri za učenje su uglavnom prikupljeni sa raznih strana.
+Primeri za učenje su prikupljeni sa svih strana.
 
 ## Instalacija
 
