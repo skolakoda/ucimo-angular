@@ -17,7 +17,7 @@
 
         <div class="left-col" class="page-list" ng-controller="ListCtrl">
             <a href="" ng-repeat="user in users track by user.id" ng-mouseenter="selectUser(user)" class="user-listing">
-                {{ user.first_name }} {{ user.last_name }}
+                {{user.first_name}} {{user.last_name}}
             </a>
         </div>
 
@@ -30,14 +30,14 @@
             </div>
 
             <div ng-if="currentUser" class="panel row">
-                <img ng-src="img/{{ currentUser.picture }}" class="col-md-4" />
+                <img ng-src="img/{{currentUser.picture}}" class="col-md-4" />
                 <div class="col-md-8">
                     <p>
-                        <strong>Name: </strong> {{ currentUser.first_name }} {{ currentUser.last_name }}</p>
+                        <strong>Name: </strong> {{currentUser.first_name}} {{currentUser.last_name}}</p>
                     <p>
-                        <strong>Email: </strong> {{ currentUser.email }}</p>
+                        <strong>Email: </strong> {{currentUser.email}}</p>
                     <p>
-                        <strong>Company: </strong> {{ currentUser.company }}</p>
+                        <strong>Company: </strong> {{currentUser.company}}</p>
                 </div>
             </div>
         </div>
