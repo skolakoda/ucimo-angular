@@ -6,7 +6,6 @@ angular.module('someApp', [])
 function ParamKontrol(parametriServis, pretragaServis) {
 	var parametri = this;
 	parametri.spisak = parametriServis;
-
 	parametri.kriteriji = pretragaServis;
 } // ParamKontrol
 
@@ -14,6 +13,5 @@ function ListaKontrol($scope, parametriServis, listaServis, pretragaServis) {
 	var lista = this;
 	lista.parametri = parametriServis;
 	lista.spisak = listaServis;
-
 	lista.kriteriji = pretragaServis;
 } // ListaKontrol
