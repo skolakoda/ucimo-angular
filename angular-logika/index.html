@@ -3,8 +3,8 @@
 
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/shared.css" />
-    
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.2.29/angular-route.min.js"></script>
     <script src="./app.js"></script>
@@ -12,6 +12,7 @@
 
 <body>
 
+    <h1>Angular logika</h1>
 
     <section>
         <h2>ng-if</h2>
@@ -64,11 +65,6 @@
         </div>
 
         <div ng-if="getValues()" class="panel">
-            <style>
-                .orange {
-                    color: orange;
-                }
-            </style>
             <input ng-model="search" />
             <div ng-repeat="value in getValues() | filter:search">
                 {{ $index + 1 }}. {{ value }}
@@ -83,7 +79,6 @@
             <button class="btn btn-primary" ng-click="slide='one'">One</button>
             <button class="btn btn-primary" ng-click="slide='two'">Two</button>
             <button class="btn btn-primary" ng-click="slide='three'">Three</button>
-            <button class="btn btn-disabled" ng-click="slide='ot3442342her'">Other</button>
         </nav>
 
         <div ng-switch="slide" class="slides">
@@ -96,28 +91,17 @@
             <div ng-switch-when="three" class="slide-3">
                 Slide 3
             </div>
-            <div ng-switch-default class="slide-other" ng-controller="Other2Ctrl">
-                {{ title }}
-            </div>
         </div>
     </section>
 
     <section>
         <h2>ng-include</h2>
 
-        <script type="text/ng-template" id="other.html">
-            <div class="slide-2">Other Slide</div>
-        </script>
-
-        <script type="text/ng-template" id="other2.html">
-            <div class="slide-2" ng-controller="Other2Ctrl">{{ title }}</div>
-        </script>
-
         <nav>
-            <button class="btn btn-primary" ng-click="tpl='home.html'">Load "home.html"</button>
-            <button class="btn btn-primary" ng-click="tpl='other.html'">Load "other.html"</button>
-            <button class="btn btn-primary" ng-click="tpl='other2.html'">Load "other2.html"</button>
-            <button class="btn btn-disabled" ng-click="tpl=null">[Load null]</button>
+            <button class="btn btn-primary" ng-click="tpl='partials/home.html'">Load "home.html"</button>
+            <button class="btn btn-primary" ng-click="tpl='partials/other.html'">Load "other.html"</button>
+            <button class="btn btn-primary" ng-click="tpl='partials/other2.html'">Load "other2.html"</button>
+            <button class="btn btn-disabled" ng-click="tpl=null">Load null</button>
         </nav>
 
         <div ng-include="tpl" class="slides"></div>

@@ -1,9 +1,5 @@
 angular.module('MyApp', [])
 
-  .controller('Other2Ctrl', ['$scope', function($scope) {
-    $scope.title = 'Other Slide 2...';
-  }])
-
   .controller('RepeatCtrl', ['$scope', function($scope) {
     $scope.setColors = function() {
       $scope.values = ['cyan','red','green','blue','orange','yellow'];
