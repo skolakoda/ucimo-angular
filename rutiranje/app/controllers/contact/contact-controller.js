@@ -1,13 +1,11 @@
-(function( ng, app ){
-
+(function(){
 	"use strict";
 
-	app.controller(
-		"contact.ContactController",
-		function( $scope, requestContext, _ ) {
+	angular
+        .module("Demo")
+		.controller("contact.ContactController", function( $scope, requestContext, _ ) {
 
 			var renderContext = requestContext.getRenderContext( "standard.contact" );
-
 			$scope.subview = renderContext.getNextSection();
 
 			$scope.$on(
@@ -25,4 +23,4 @@
 		}
 	);
 
-})( angular, Demo );
+})();

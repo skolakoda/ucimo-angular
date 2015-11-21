@@ -1,9 +1,9 @@
-(function( ng, app ){
+(function(){
 	"use strict";
 
-	app.controller(
-		"home.HomeController",
-		function( $scope, requestContext, _ ) {
+	angular
+        .module("Demo")
+		.controller("home.HomeController", function( $scope, requestContext, _ ) {
 
 			var renderContext = requestContext.getRenderContext( "splash.home" );
 			$scope.subview = renderContext.getNextSection();
@@ -21,4 +21,4 @@
 		}
 	);
 
-})( angular, Demo );
+})();
