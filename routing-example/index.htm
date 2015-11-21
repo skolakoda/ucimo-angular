@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <title ng-bind="windowTitle">Adopt-A-Pet</title>
-        <link href="assets/app/css/main.css" rel="stylesheet" type="text/css"></link>
+        <link href="app/css/main.css" rel="stylesheet" type="text/css"></link>
     </head>
     <body>
 
@@ -14,40 +14,39 @@
             </div>
 
             <!-- Core layouts. -->
-            <div ng-include=" 'assets/app/views/layouts/splash.htm' " ng-switch-when="splash"></div>
-            <div ng-include=" 'assets/app/views/layouts/standard.htm' " ng-switch-when="standard"></div>
+            <div ng-include=" 'app/views/layouts/splash.htm' " ng-switch-when="splash"></div>
+            <div ng-include=" 'app/views/layouts/standard.htm' " ng-switch-when="standard"></div>
         </div>
 
-        <!-- ### JavaScript Modules. ### -->
 
         <!-- Load vendor scripts. -->
-        <script src="assets/vendor/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
-        <script src="assets/vendor/angularjs/angular.min.js" type="text/javascript"></script>
-        <script src="assets/vendor/lodash/lodash.min.js" type="text/javascript"></script>
+        <script src="vendor/jquery/jquery-1.8.3.min.js"></script>
+        <script src="vendor/angularjs/angular.min.js"></script>
+        <script src="vendor/lodash/lodash.min.js"></script>
 
         <!-- Load AngularJS application module. -->
-        <script src="assets/app/main.js" type="text/javascript"></script>
+        <script src="app/main.js"></script>
 
         <!-- Load Controllers. -->
-        <script src="assets/app/controllers/contact/contact-controller.js" type="text/javascript"></script>
-        <script src="assets/app/controllers/home/home-controller.js" type="text/javascript"></script>
-        <script src="assets/app/controllers/layouts/splash-controller.js" type="text/javascript"></script>
-        <script src="assets/app/controllers/layouts/standard-controller.js" type="text/javascript"></script>
-        <script src="assets/app/controllers/pets/categories-controller.js" type="text/javascript"></script>
-        <script src="assets/app/controllers/pets/detail/detail-controller.js" type="text/javascript"></script>
-        <script src="assets/app/controllers/pets/detail/random-controller.js" type="text/javascript"></script>
-        <script src="assets/app/controllers/pets/list-controller.js" type="text/javascript"></script>
-        <script src="assets/app/controllers/pets/pets-controller.js" type="text/javascript"></script>
-        <script src="assets/app/controllers/app-controller.js" type="text/javascript"></script>
+        <script src="app/controllers/contact/contact-controller.js"></script>
+        <script src="app/controllers/home/home-controller.js"></script>
+        <script src="app/controllers/layouts/splash-controller.js"></script>
+        <script src="app/controllers/layouts/standard-controller.js"></script>
+        <script src="app/controllers/pets/categories-controller.js"></script>
+        <script src="app/controllers/pets/detail/detail-controller.js"></script>
+        <script src="app/controllers/pets/detail/random-controller.js"></script>
+        <script src="app/controllers/pets/list-controller.js"></script>
+        <script src="app/controllers/pets/pets-controller.js"></script>
+        <script src="app/controllers/app-controller.js"></script>
 
         <!-- Load Services. -->
-        <script src="assets/app/services/category-service.js" type="text/javascript"></script>
-        <script src="assets/app/services/lodash.js" type="text/javascript"></script>
-        <script src="assets/app/services/pet-service.js" type="text/javascript"></script>
-        <script src="assets/app/services/request-context.js" type="text/javascript"></script>
+        <script src="app/services/category-service.js"></script>
+        <script src="app/services/lodash.js"></script>
+        <script src="app/services/pet-service.js"></script>
+        <script src="app/services/request-context.js"></script>
 
         <!-- Load Beans. -->
-        <script src="assets/app/beans/render-context.js" type="text/javascript"></script>
+        <script src="app/beans/render-context.js"></script>
 
     </body>
 </html>
