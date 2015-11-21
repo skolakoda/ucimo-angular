@@ -2,16 +2,17 @@
 <html>
 
 <head>
+    <title>Paginacija</title>
     <meta charset="utf-8"/>
-    <script data-require="angular.js@1.3.0" data-semver="1.3.0" src="https://code.angularjs.org/1.3.0/angular.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://code.angularjs.org/1.3.0/angular.js"></script>
+    <script src="app.js"></script>
     <script src="paginacija.js"></script>
 </head>
 
 <body ng-app="myApp">
 
-    <div ng-controller="MyController" class="my-controller">
+    <div ng-controller="MyController" class="container">
         <div class="row">
             <h3>Strana: {{ currentPage }}</h3>
             <label for="search">Search:</label>
