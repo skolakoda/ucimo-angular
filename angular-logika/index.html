@@ -18,35 +18,35 @@
         <h2>ng-if</h2>
 
         <nav>
-            <button class="btn btn-primary" ng-click="on=true">on=true</button>
-            <button class="btn btn-primary" ng-click="on=false">on=false</button>
+            <button class="btn btn-primary" ng-click="ukljuceno=true">ukljuceno=true</button>
+            <button class="btn btn-primary" ng-click="ukljuceno=false">ukljuceno=false</button>
         </nav>
 
-        <div ng-if="on" class="panel">
+        <div ng-if="ukljuceno" class="panel">
             <p>I am visible when ng-if is true</p>
         </div>
     </section>
 
-    <section ng-init="show=true; hide=false">
+    <section ng-init="pokazi=true; sakrij=false">
         <h2>ng-show / ng-hide</h2>
 
         <nav>
-            <button class="btn btn-primary" ng-click="show=true">show=true</button>
-            <button class="btn btn-primary" ng-click="show=false">show=false</button>
-            <button class="btn btn-disabled" ng-click="show=!show">[toggle]</button>
+            <button class="btn btn-primary" ng-click="pokazi=true">pokazi=true</button>
+            <button class="btn btn-primary" ng-click="pokazi=false">pokazi=false</button>
+            <button class="btn btn-disabled" ng-click="pokazi=!pokazi">[toggle]</button>
         </nav>
 
-        <div ng-show="show" class="panel">
+        <div ng-show="pokazi" class="panel">
             <p>I am visible when show is true</p>
         </div>
 
         <nav>
-            <button class="btn btn-primary" ng-click="hide=true">hide=true</button>
-            <button class="btn btn-primary" ng-click="hide=false">hide=false</button>
+            <button class="btn btn-primary" ng-click="sakrij=true">sakrij=true</button>
+            <button class="btn btn-primary" ng-click="sakrij=false">sakrij=false</button>
         </nav>
 
-        <div ng-hide="hide" class="panel">
-            <p>I am visible when hide is false</p>
+        <div ng-hide="sakrij" class="panel">
+            <p>I am visible when sakrij is false</p>
         </div>
     </section>
 
