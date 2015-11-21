@@ -1,23 +1,9 @@
 (function() {
 
-    /**
-     * Config
-     */
-    var moduleName = 'angularUtils.directives.dirPagination';
     var DEFAULT_ID = '__default';
 
-    /**
-     * Module
-     */
-    var module;
-    try {
-        module = angular.module(moduleName);
-    } catch(err) {
-        // named module does not exist, so create one
-        module = angular.module(moduleName, []);
-    }
-
-    module
+    angular
+        .module('angularUtils.directives.dirPagination', [])
         .directive('dirPaginate', ['$compile', '$parse', 'paginationService', dirPaginateDirective])
         .directive('dirPaginateNoCompile', noCompileDirective)
         .directive('dirPaginationControls', ['paginationService', 'paginationTemplate', dirPaginationControlsDirective])
@@ -27,13 +13,13 @@
 
     function dirPaginateDirective($compile, $parse, paginationService) {
 
-        return  {
+        return {
             terminal: true,
             multiElement: true,
             compile: dirPaginationCompileFn
         };
 
-        function dirPaginationCompileFn(tElement, tAttrs){
+        function dirPaginationCompileFn(tElement, tAttrs) {
 
             var expression = tAttrs.dirPaginate;
             // regex taken directly from https://github.com/angular/angular.js/blob/master/src/ng/directive/ngRepeat.js#L211
@@ -53,7 +39,7 @@
             var rawId = tAttrs.paginationId || DEFAULT_ID;
             paginationService.registerInstance(rawId);
 
-            return function dirPaginationLinkFn(scope, element, attrs){
+            return function dirPaginationLinkFn(scope, element, attrs) {
 
                 // Now that we have access to the `scope` we can interpolate any expression given in the paginationId attribute and
                 // potentially register a new ID if it evaluates to a different value than the rawId.
@@ -64,7 +50,7 @@
                 addNgRepeatToElement(element, attrs, repeatExpression);
 
                 removeTemporaryAttributes(element);
-                var compiled =  $compile(element);
+                var compiled = $compile(element);
 
                 var currentPageGetter = makeCurrentPageGetterFn(scope, attrs, paginationId);
                 paginationService.setCurrentPageParser(paginationId, currentPageGetter, scope);
@@ -73,7 +59,7 @@
                     paginationService.setAsyncModeTrue(paginationId);
                     scope.$watch(function() {
                         return $parse(attrs.totalItems)(scope);
-                    }, function (result) {
+                    }, function(result) {
                         if (0 <= result) {
                             paginationService.setCollectionLength(paginationId, result);
                         }
@@ -214,15 +200,17 @@
             // rawId is the un-interpolated value of the pagination-id attribute. This is only important when the corresponding dir-paginate directive has
             // not yet been linked (e.g. if it is inside an ng-if block), and in that case it prevents this controls directive from assuming that there is
             // no corresponding dir-paginate directive and wrongly throwing an exception.
-            var rawId = attrs.paginationId ||  DEFAULT_ID;
-            var paginationId = scope.paginationId || attrs.paginationId ||  DEFAULT_ID;
+            var rawId = attrs.paginationId || DEFAULT_ID;
+            var paginationId = scope.paginationId || attrs.paginationId || DEFAULT_ID;
 
             if (!paginationService.isRegistered(paginationId) && !paginationService.isRegistered(rawId)) {
                 var idMessage = (paginationId !== DEFAULT_ID) ? ' (id: ' + paginationId + ') ' : ' ';
                 throw 'pagination directive: the pagination controls' + idMessage + 'cannot be used without the corresponding pagination directive.';
             }
 
-            if (!scope.maxSize) { scope.maxSize = 9; }
+            if (!scope.maxSize) {
+                scope.maxSize = 9;
+            }
             scope.directionLinks = angular.isDefined(attrs.directionLinks) ? scope.$parent.$eval(attrs.directionLinks) : true;
             scope.boundaryLinks = angular.isDefined(attrs.boundaryLinks) ? scope.$parent.$eval(attrs.boundaryLinks) : false;
 
@@ -277,7 +265,9 @@
 
                     // if a callback has been set, then call it with the page number as an argument
                     if (scope.onPageChange) {
-                        scope.onPageChange({ newPageNumber : num });
+                        scope.onPageChange({
+                            newPageNumber: num
+                        });
                     }
                 }
             }
@@ -350,7 +340,7 @@
                 } else {
                     pages.push(pageNumber);
                 }
-                i ++;
+                i++;
             }
             return pages;
         }
@@ -365,7 +355,7 @@
          * @returns {*}
          */
         function calculatePageNumber(i, currentPage, paginationRange, totalPages) {
-            var halfWay = Math.ceil(paginationRange/2);
+            var halfWay = Math.ceil(paginationRange / 2);
             if (i === paginationRange) {
                 return totalPages;
             } else if (i === 1) {
@@ -392,7 +382,7 @@
     function itemsPerPageFilter(paginationService) {
 
         return function(collection, itemsPerPage, paginationId) {
-            if (typeof (paginationId) === 'undefined') {
+            if (typeof(paginationId) === 'undefined') {
                 paginationId = DEFAULT_ID;
             }
             if (!paginationService.isRegistered(paginationId)) {

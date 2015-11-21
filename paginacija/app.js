@@ -1,4 +1,6 @@
-var myApp = angular.module('myApp', ['angularUtils.directives.dirPagination']);
+angular
+    .module('myApp', ['angularUtils.directives.dirPagination'])
+    .controller('MyController', MyController);
 
 function MyController($scope) {
 
@@ -40,5 +42,3 @@ function MyController($scope) {
   }
 
 }
-
-myApp.controller('MyController', MyController);
