@@ -2,28 +2,33 @@ var model = {
     user: "Adam"
 };
 
-angular.module("todoApp", [])
+angular
+    .module("todoApp", [])
+    .run(getTodos)
+    .filter("checkedItems", checkedItems)
+    .controller("ToDoCtrl", ToDoCtrl);
 
-.run(function($http) {
+
+function getTodos($http) {
     $http.get("todo.json").success(function(data) {
         model.items = data;
     });
-})
+}   // getTodos
 
-.filter("checkedItems", function() {
+function checkedItems() {
     return function(items, showComplete) {
         var resultArr = [];
         angular.forEach(items, function(item) {
 
-            if (item.done == false || showComplete == true) {
+            if (item.done === false || showComplete === true) {
                 resultArr.push(item);
             }
         });
         return resultArr;
     }
-})
+} // checkedItems
 
-.controller("ToDoCtrl", function($scope) {
+function ToDoCtrl($scope) {
     $scope.todo = model;
 
     $scope.incompleteCount = function() {
@@ -46,5 +51,4 @@ angular.module("todoApp", [])
             done: false
         });
     }
-
-});
+} // ToDoCtrl
