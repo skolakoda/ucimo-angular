@@ -3,21 +3,21 @@ var app = angular.module('store-directives', []);
 app.directive("descriptions", function() {
   return {
     restrict: "E",
-    templateUrl: "descriptions.html"
+    templateUrl: "partials/descriptions.html"
   }
 });
 
 app.directive("reviews", function() {
   return {
     restrict: "E",
-    templateUrl: "reviews.html"
+    templateUrl: "partials/reviews.html"
   }
 });
 
 app.directive("specs", function() {
   return {
     restrict: "E",
-    templateUrl: "specs.html"
+    templateUrl: "partials/specs.html"
   }
 });
 
@@ -25,7 +25,7 @@ app.directive("productTabs", function() {
   return {
     restrict: "E",
 
-    templateUrl: "product-tabs.html",
+    templateUrl: "partials/product-tabs.html",
     controller: function() {
       this.tab = 1;
 
