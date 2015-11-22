@@ -1,18 +1,20 @@
 "use strict";
 angular.module('WikiApp', [])
-    .controller('MainCtrl', MainCtrl);
+    .controller('WikiCtrl', WikiCtrl);
 
-function MainCtrl($scope, $http) {
+function WikiCtrl($http) {
 
-    $scope.search = function() {
-        if(!$scope.searchTxt) return;
-        $scope.results = [];
-        var apiUrl = 'http://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&callback=JSON_CALLBACK&gsrsearch=' + $scope.searchTxt;
+    var wiki = this;
+    var apiUrl = 'http://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&callback=JSON_CALLBACK&gsrsearch=';
 
-        $http.jsonp(apiUrl)
+    wiki.search = function() {
+        wiki.results = [];
+        if(!wiki.searchTxt) return;
+
+        $http.jsonp(apiUrl + wiki.searchTxt)
             .success(function(data) {
                 angular.forEach(data.query.pages, function(page, pageId) {
-                    $scope.results.push({
+                    wiki.results.push({
                         title: page.title,
                         extract: page.extract,
                         pageUrl: 'http://en.wikipedia.org/?curid=' + pageId
@@ -20,4 +22,4 @@ function MainCtrl($scope, $http) {
                 });
             }); // end success
     };
-}   // MainCtrl
+}   // WikiCtrl
