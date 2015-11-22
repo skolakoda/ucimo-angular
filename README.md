@@ -21,6 +21,8 @@ Napredne teme su:
 
 ## Instalacija
 
+Prekopiraj sadržaj kursa na svoj kompjuter:
+
 ```sh
 $ git clone https://github.com/skolakoda/ucimo-angular.git
 ```
