@@ -11,13 +11,13 @@ Osnovne teme koje prelazimo su:
 - pravljenje jednostranične aplikacije
 - http komunikacija sa API servisom
 - validacija formulara i unosa
+- rutiranje
 
 Napredne teme su:
 - organizacija koda složenog programa
 - MVC (model–view–controller) arhitektura aplikacije
 - komunikacija kontrolera preko servisa
 - multi-filteri (jedna od najjačih strana Angulara)
-- rutiranje
 
 ## Instalacija
 
