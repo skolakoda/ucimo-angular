@@ -1,8 +1,6 @@
 # Učimo AngularJS
 
-[AngularJS](https://angularjs.org/) je superherojski radni okvir, koji Javaskript developeru omogućava super moći.
-
-Angular nas spašava mnogo muke, neizbežne sa jQuery-jem ili čistim Javaskriptom, posebno jurenja elemenata po DOM-u i neprestanog hvatanja i ažuriranja njihovih vrednosti.
+[AngularJS](https://angularjs.org/) je superherojski radni okvir, koji Javaskript developeru omogućava super moći. Angular nas spašava mnogo muke, neizbežne sa jQuery-jem ili čistim Javaskriptom, posebno jurenja elemenata po DOM-u i neprestanog hvatanja i ažuriranja njihovih vrednosti.
 
 ## Sadržaj
 
