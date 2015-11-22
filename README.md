@@ -21,6 +21,10 @@ Napredne teme su:
 
 ## Instalacija
 
+```sh
+$ git clone https://github.com/skolakoda/ucimo-angular.git
+```
+
 Proste Angular aplikacije se jednostavno otvaraju u browseru, a složenije preko lokalnog servera (localhost-a).
 
 ---
