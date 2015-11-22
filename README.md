@@ -18,6 +18,7 @@ Napredne teme su:
 - MVC (model–view–controller) arhitektura aplikacije
 - komunikacija kontrolera preko servisa
 - multi-filteri (jedna od najjačih strana Angulara)
+- emitovanje događaja (eventa)
 
 ## Instalacija
 
