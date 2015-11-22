@@ -11,14 +11,12 @@
 <body>
 
     <main ng-app="WikiApp" ng-controller="MainCtrl">
-        <form ng-submit="search()">
-            <input ng-model="searchTxt" ng-change="search()" />
-        </form>
+        <input ng-model="searchTxt" ng-change="search()" />
 
         <div class="results">
-            <a ng-href="{{result.page}}" target="_blank" ng-repeat="result in results">
-                <h1>{{result.title}}</h1>
-                <p>{{result.body}}</p>
+            <a ng-repeat="page in results" ng-href="{{page.pageUrl}}" target="_blank">
+                <h1>{{page.title}}</h1>
+                <p>{{page.extract}}</p>
             </a>
         </div>
     </main>
