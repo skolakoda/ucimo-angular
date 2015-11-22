@@ -2,12 +2,13 @@
 
 [AngularJS](https://angularjs.org/) je superherojski radni okvir, koji Javaskript developeru daje super moći. Angular nas spašava mnogo muke, neizbežne sa jQuery-jem ili čistim Javaskriptom, posebno jurenja elemenata po DOM-u i neprestanog hvatanja i ažuriranja vrednosti.
 
-## Sadržaj
+## Sadržaj kursa
 
 Kurs sadrži mnoštvo primenljivih primera, od osnovnih do naprednih. Svaki nivo je mini aplikacija za sebe.
 
 Osnovne teme koje prelazimo su:
 - uvod u AngulaJS i osnovna logika
+- pravljenje jednostranične aplikacije
 - http komunikacija sa API servisom
 - validacija formulara i unosa
 
@@ -16,6 +17,7 @@ Napredne teme su:
 - MVC (model–view–controller) arhitektura aplikacije
 - komunikacija kontrolera preko servisa
 - multi-filteri (jedna od najjačih strana Angulara)
+- rutiranje
 
 ## Instalacija
 
