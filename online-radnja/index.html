@@ -13,7 +13,6 @@
 </head>
 
 <body ng-controller="StoreController as store">
-    <!--  Store Header  -->
     <header>
         <h1 class="text-center">Flatlander Crafted Gems</h1>
         <h2 class="text-center">– an Angular store –</h2>
@@ -21,10 +20,9 @@
 
     <!--  Products Container  -->
     <div class="list-group">
-        <!--  Product Container  -->
+
         <div class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'">
 
-            <!-- $index Practice:  -->
             <h3>Gem #{{$index + 1}}: {{product.name | uppercase}}
                 <em class="pull-right">{{product.price | currency}}</em>
             </h3>
