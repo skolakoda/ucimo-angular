@@ -1,19 +1,35 @@
-var model = {
-    user: "Adam"
-};
-
 angular
     .module("todoApp", [])
-    .run(getTodos)
-    .filter("checkedItems", checkedItems)
-    .controller("ToDoCtrl", ToDoCtrl);
+    .controller("ToDoCtrl", ToDoCtrl)
+    .filter("checkedItems", checkedItems);
 
 
-function getTodos($http) {
+function ToDoCtrl($scope, $http) {
+
     $http.get("todo.json").success(function(data) {
-        model.items = data;
+        $scope.items = data;
     });
-}   // getTodos
+
+    $scope.incompleteCount = function() {
+        var count = 0;
+        angular.forEach($scope.items, function(item) {
+            if (!item.done) count++;
+        });
+        return count;
+    };
+
+    $scope.warningClass = function() {
+        return $scope.incompleteCount() < 3 ? "label-success" : "label-warning";
+    };
+
+    $scope.addNewItem = function(actionText) {
+        $scope.items.push({
+            action: actionText,
+            done: false
+        });
+    };
+} // ToDoCtrl
+
 
 function checkedItems() {
     return function(items, showComplete) {
@@ -25,30 +41,5 @@ function checkedItems() {
             }
         });
         return resultArr;
-    }
+    };
 } // checkedItems
-
-function ToDoCtrl($scope) {
-    $scope.todo = model;
-
-    $scope.incompleteCount = function() {
-        var count = 0;
-        angular.forEach($scope.todo.items, function(item) {
-            if (!item.done) {
-                count++
-            }
-        });
-        return count;
-    }
-
-    $scope.warningLevel = function() {
-        return $scope.incompleteCount() < 3 ? "label-success" : "label-warning";
-    }
-
-    $scope.addNewItem = function(actionText) {
-        $scope.todo.items.push({
-            action: actionText,
-            done: false
-        });
-    }
-} // ToDoCtrl
