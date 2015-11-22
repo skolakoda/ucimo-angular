@@ -2,13 +2,13 @@
 
 [AngularJS](https://angularjs.org/) je superherojski radni okvir, koji Javaskript developeru omogućava super moći.
 
-Angular vas spašava mnogo muke, posebno jurenja elemenata po DOM-u i neprestanog hvatanja i ažuriranja vrednosti.
+Angular nas spašava mnogo muke, neizbežne sa jQuery-jem ili čistim Javaskriptom, posebno jurenja elemenata po DOM-u i neprestanog hvatanja i ažuriranja njihovih vrednosti.
 
 ## Sadržaj
 
 Kurs sadrži mnoštvo primenljivih primera, od osnovnih do naprednih. Svaki nivo je mini aplikacija za sebe.
 
-Neke od osnovnih tema koje prelazimo su:
+Osnovne teme koje prelazimo su:
 - uvod u AngulaJS i osnovna logika
 - http komunikacija sa API servisom
 - validacija formulara i unosa
@@ -21,13 +21,14 @@ Napredne teme su:
 
 ## Instalacija
 
-Prekopiraj sadržaj kursa na svoj kompjuter:
+Prvo, prekopiraj sadržaj kursa na svoj kompjuter:
 
 ```sh
 $ git clone https://github.com/skolakoda/ucimo-angular.git
 ```
 
 Proste Angular aplikacije se jednostavno otvaraju u browseru, a složenije preko lokalnog servera (localhost-a).
+
 
 ---
 ### Škola koda, učimo narod programiranju!
