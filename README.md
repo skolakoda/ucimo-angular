@@ -1,4 +1,4 @@
-![AngularJS](https://upload.wikimedia.org/wikipedia/commons/c/ca/AngularJS_logo.svg)
+![AngularJS](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/500px-AngularJS_logo.svg.png)
 
 # Učimo AngularJS
 
