@@ -1,3 +1,5 @@
+![AngularJS](https://upload.wikimedia.org/wikipedia/commons/c/ca/AngularJS_logo.svg)
+
 # Učimo AngularJS
 
 [AngularJS](https://angularjs.org/) je superherojski radni okvir, koji Javaskript developeru daje super moći. Angular nas spašava mnogo muke, neizbežne sa jQuery-jem ili čistim Javaskriptom, posebno jurenja elemenata po DOM-u i neprestanog hvatanja i ažuriranja vrednosti.
