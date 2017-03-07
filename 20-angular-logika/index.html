@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+
+<head>
+    <title>Angular logika</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+
+    <script src="../libs/angular-1.2.29/angular.min.js"></script>
+    <script src="../libs/angular-route-1.2.29/angular-route.min.js"></script>
+    <script src="./app.js"></script>
+</head>
+
+<body>
+
+    <h1>Angular logika</h1>
+
+    <section>
+        <h2>ng-if</h2>
+
+        <nav>
+            <button class="btn btn-primary" ng-click="ukljuci = true">ukljuci = true</button>
+            <button class="btn btn-primary" ng-click="ukljuci = false">ukljuci = false</button>
+        </nav>
+
+        <div ng-if="ukljuci" class="panel">
+            <p>I am visible when ng-if is true</p>
+        </div>
+    </section>
+
+    <section ng-init="pokazi = true; sakrij = false">
+        <h2>ng-show / ng-hide</h2>
+
+        <nav>
+            <button class="btn btn-primary" ng-click="pokazi = true">pokazi = true</button>
+            <button class="btn btn-primary" ng-click="pokazi = false">pokazi = false</button>
+            <button class="btn btn-disabled" ng-click="pokazi = !pokazi">[toggle]</button>
+        </nav>
+
+        <div ng-show="pokazi" class="panel">
+            <p>I am visible when show is true</p>
+        </div>
+
+        <nav>
+            <button class="btn btn-primary" ng-click="sakrij = true">sakrij = true</button>
+            <button class="btn btn-primary" ng-click="sakrij = false">sakrij = false</button>
+        </nav>
+
+        <div ng-hide="sakrij" class="panel">
+            <p>I am visible when sakrij is false</p>
+        </div>
+    </section>
+
+
+    <section ng-controller="RepeatCtrl">
+        <h2>ng-repeat</h2>
+
+        <nav>
+            <button class="btn btn-primary" ng-click="setColors()">Boje</button>
+            <button class="btn btn-primary" ng-click="setStates()">Države</button>
+            <button class="btn btn-disabled" ng-click="values = null">[ništa]</button>
+        </nav>
+
+        <div ng-if="!getValues()" class="panel">
+            <p>There are no values</p>
+        </div>
+
+        <div ng-if="getValues()" class="panel">
+            <input ng-model="search" />
+            <div ng-repeat="value in getValues() | filter:search">
+                {{ $index + 1 }}. {{ value }}
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>ng-switch</h2>
+
+        <nav>
+            <button class="btn btn-primary" ng-click="slide = 'one'">One</button>
+            <button class="btn btn-primary" ng-click="slide = 'two'">Two</button>
+            <button class="btn btn-primary" ng-click="slide = 'three'">Three</button>
+        </nav>
+
+        <div ng-switch="slide" class="slides">
+            <div ng-switch-when="one" class="slide-1">
+                Slide 1
+            </div>
+            <div ng-switch-when="two" class="slide-2">
+                Slide 2
+            </div>
+            <div ng-switch-when="three" class="slide-3">
+                Slide 3
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>ng-include</h2>
+
+        <nav>
+            <button class="btn btn-primary" ng-click="tpl = 'partials/home.html'">Učitaj "home.html"</button>
+            <button class="btn btn-primary" ng-click="tpl = 'partials/other.html'">Učitaj "other.html"</button>
+            <button class="btn btn-primary" ng-click="tpl = 'partials/other2.html'">Učitaj "other2.html"</button>
+            <button class="btn btn-disabled" ng-click="tpl = null">Učitaj null</button>
+        </nav>
+
+        <div ng-include="tpl" class="slides"></div>
+    </section>
+
+    <section>
+        <h2>ng-focus, ng-blur i ng-class</h2>
+
+        <p>
+            <span ng-class="{'label-success':focus}" class="label label-default">Focus!</span>
+            <span ng-class="{'label-warning':!focus}" class="label label-default">Blur!</span>
+        </p>
+
+        <p>
+            <input ng-model="title" class="form-control" ng-focus="focus = true" ng-blur="focus = false" placeholder="Unesi naslov tvoje knjige" />
+        </p>
+
+        <div class="panel">
+            <p>Naslov tvoje knjige je
+                <strong>
+                    {{ title.length ? title : "Nema naslova" }}
+                </strong>
+            </p>
+        </div>
+    </section>
+
+</body>
+
+</html>

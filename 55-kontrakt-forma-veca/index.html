@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>AngularJS Form</title>
+  <link rel="stylesheet" href="../libs/bootstrap/dist/css/bootstrap.min.css">
+  <style>
+	  .slanje {
+		  color: red;
+		  font-size: 50px;
+		}
+  </style>
+</head>
+
+<body ng-app="formularModul" class="container">
+
+  <section ng-controller="formKontrol as forma">
+    <h2>Kontakt</h2>
+
+    <p id="messages" ng-show="forma.obavestenje" ng-bind="forma.obavestenje" class="alert alert-success"></p>
+    <p ng-show="forma.napredak.active()" class="slanje">Šalje se...</p>
+
+    <form name="obrazac" novalidate role="form">
+
+        <label for="namenjeno">Namenjeno: </label>
+        <span class="label label-danger" ng-show="forma.poslato && obrazac.namenjeno.$error.required">Obavezno!</span>
+        <select name="namenjeno" ng-model="forma.namenjeno" class="form-control"
+                ng-options="kljuc as vrednost for (kljuc, vrednost) in forma.listaOpcija" required>
+        </select>
+
+        <label for="name">Ime i prezime</label>
+        <span class="label label-danger" ng-show="forma.poslato && obrazac.name.$error.required">Obavezno!</span>
+        <input name="name" ng-model="forma.ime" class="form-control" required />
+
+        <label for="funkcija">Funkcija</label>
+        <input name="funkcija" ng-model="forma.funkcija" class="form-control" />
+
+        <label for="naziv_firme">Naziv firme</label>
+        <input name="naziv_firme" ng-model="forma.nazivFirme" class="form-control" />
+
+        <label for="telefon">Telefon</label>
+        <input type="tel" name="telefon" ng-model="forma.telefon" class="form-control" />
+
+        <label for="email">Email</label>
+        <span class="label label-danger" ng-show="forma.poslato && obrazac.email.$error.required">Obavezno!</span>
+        <span class="label label-danger" ng-show="forma.poslato && obrazac.$error.email">Ovo ne liči na email</span>
+        <input type="email" name="email" ng-model="forma.email" class="form-control" required />
+
+        <label for="comments">Vaša poruka</label>
+        <span class="label label-danger" ng-show="forma.poslato && obrazac.comments.$error.required">Obavezno!</span>
+        <textarea name="comments" ng-model="forma.komentari" class="form-control" required></textarea>
+
+        <br/>
+      <button ng-disabled="forma.napredak.active()" ng-click="forma.posalji(obrazac)" class="btn btn-default">Pošalji</button>
+    </form>
+
+      <br/>
+      <p><strong>Napomena: </strong><br/>
+          1. Polja: Ime i prezime, E-mail i Vaša poruka moraju biti popunjena.<br/>
+          2. Pre nego što pošaljete Vašu poruku, morate uneti sigurnosni kod koji se nalazi u žutom pravougaoniku.</p>
+
+  </section>
+
+  <script src="../libs/angular-1.2.29/angular.min.js"></script>
+  <script src="js/modules/promise-tracker.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

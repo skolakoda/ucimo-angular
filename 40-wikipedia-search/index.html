@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wikipedia Search</title>
+    <script src="../libs/angular-1.2.29/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+
+    <main ng-app="WikiApp" ng-controller="WikiCtrl as wiki">
+        <input ng-model="wiki.searchTxt" ng-change="wiki.search()" />
+
+        <div>
+            <a ng-repeat="page in wiki.results" ng-href="{{page.pageUrl}}" target="_blank">
+                <h1>{{page.title}}</h1>
+                <p>{{page.extract}}</p>
+            </a>
+        </div>
+    </main>
+
+</body>
+</html>

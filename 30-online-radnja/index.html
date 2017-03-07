@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="gemStore">
+
+<head>
+    <meta charset="utf-8" />
+    <title>AngularJS</title>
+    <link rel="stylesheet" href="../libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="../libs/angular-1.2.29/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="directives.js"></script>
+</head>
+
+<body ng-controller="StoreController as store">
+    <header>
+        <h1 class="text-center">Flatlander Crafted Gems</h1>
+        <h2 class="text-center">– an Angular store –</h2>
+    </header>
+
+    <!--  Products Container  -->
+    <div class="list-group">
+
+        <div class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'">
+
+            <h3>Gem #{{$index + 1}}: {{product.name | uppercase}}
+                <em class="pull-right">{{product.price | currency}}</em>
+            </h3>
+
+            <!-- Image Gallery  -->
+            <div ng-show="product.images.length" ng-controller="GalleryController as gallery">
+                <div class="img-wrap">
+                    <img ng-src="{{product.images[gallery.imageIndex]}}" class="img-thumbnail center-block" />
+                </div>
+                <ul class="img-thumbnails clearfix">
+                    <li class="small-image pull-left thumbnail" ng-repeat="image in product.images" ng-click="gallery.currentImageChange($index)">
+                        <img ng-src="{{image}}" />
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Product Tabs  -->
+            <product-tabs></product-tabs>
+
+        </div>
+    </div>
+</body>
+
+</html>
