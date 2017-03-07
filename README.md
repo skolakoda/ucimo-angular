@@ -1,6 +1,6 @@
 # Učimo AngularJS
 
-![AngularJS](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/400px-AngularJS_logo.svg.png)
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/400px-AngularJS_logo.svg.png)
 
 [AngularJS](https://angularjs.org/) je superherojski radni okvir (framework), koji Javaskript developeru daje super moći. Angular nas spašava mnogo muke, posebno jurenja elemenata po DOM-u i neprestanog hvatanja i ažuriranja vrednosti.
 
@@ -24,10 +24,10 @@ Napredne teme su:
 
 ## Instalacija
 
-Prvo, prekopiraj sadržaj kursa na svoj kompjuter:
-
 ```sh
-$ git clone https://github.com/skolakoda/ucimo-angular.git
+git clone https://github.com/skolakoda/ucimo-angular.git
+cd ucimo-angular
+bower install
 ```
 
 Proste Angular aplikacije se jednostavno otvaraju u browseru, a složenije preko lokalnog servera (localhost-a).
