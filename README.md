@@ -35,4 +35,4 @@ Napredne teme su:
 Bitna stavka: [A Tale of Frankenstein and Binding to Service Values in Angular.js](http://stsc3000.github.io/blog/2013/10/26/a-tale-of-frankenstein-and-binding-to-service-values-in-angular-dot-js/)
 
 ---
-### Škola koda, učimo narod programiranju!
+### [Škola koda](https://skolakoda.org/), učimo narod programiranju!
